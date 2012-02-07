@@ -1,0 +1,156 @@
+package com.example;
+
+import java.nio.ByteBuffer;
+import java.nio.IntBuffer;
+import java.text.DecimalFormat;
+import java.util.LinkedList;
+import java.util.Observable;
+import java.util.Observer;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.os.Bundle;
+
+import com.androidplot.xy.BoundaryMode;
+import com.androidplot.xy.LineAndPointFormatter;
+import com.androidplot.xy.SimpleXYSeries;
+import com.androidplot.xy.XYPlot;
+import com.androidplot.xy.XYStepMode;
+
+public class TestPlotActivity extends Activity {
+	
+    // redraws a plot whenever an update is received:
+    private class mPlotUpdater implements Observer {
+        XYPlot plot;
+        // Constructor sets up the series
+        public mPlotUpdater(XYPlot plot) {
+            this.plot = plot;
+            // only display whole numbers in domain labels
+            plot.getGraphWidget().setDomainValueFormat(new DecimalFormat("0"));
+            
+            plot.setRangeBoundaries(0, 256, BoundaryMode.FIXED);
+            plot.setDomainBoundaries(0, 1024, BoundaryMode.FIXED);
+            
+            LineAndPointFormatter series1Format = new LineAndPointFormatter(
+                    Color.rgb(0, 200, 0),                   // line color
+                    Color.rgb(0, 100, 0),                   // point color
+                    Color.rgb(150, 190, 150));              // fill color (optional)
+            
+            plot.addSeries(audioHistSeries, series1Format);
+            
+            // thin out domain/range tick labels so they don't overlap each other:
+            plot.setGridPadding(5, 0, 5, 0);
+            plot.setTicksPerDomainLabel(5);
+            plot.setTicksPerRangeLabel(3);
+            plot.disableAllMarkup();
+     
+            // freeze the range boundaries:            
+            plot.setDomainStepMode(XYStepMode.SUBDIVIDE);
+            plot.setDomainStepValue(5);
+            plot.setTicksPerRangeLabel(6);
+            plot.setDomainLabel("Time");
+            plot.getDomainLabelWidget().pack();
+            plot.setRangeLabel("Amplitude");
+            plot.getRangeLabelWidget().pack();
+            plot.disableAllMarkup();
+        }
+
+		@Override
+        public void update(Observable o, Object arg) {
+        	//o.notifyObservers();
+			audioGen income = (audioGen)arg;
+			
+			if( randHist.size() > HISTORY_SIZE )
+				randHist.removeFirst();
+			
+			//byte[] localData = income.audioData;
+			byte[] localData = income.getBuffer();
+			// convert each byte in the array to an unsinged number value
+			// to be graphed
+			for( int i = 0; i < localData.length; i++ )
+			{
+				randHist.addLast( (Number)(localData[i] & 0xFF) );
+				if( randHist.size() > HISTORY_SIZE )
+					randHist.removeFirst();
+				
+			}
+
+			// update the graph. 
+			audioHistSeries.setModel(randHist, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY);
+		
+			try {
+				dynamicPlot.postRedraw();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+        }
+    }
+	
+    private XYPlot dynamicPlot = null;
+    private mPlotUpdater plotUpdater;
+    private SimpleXYSeries audioHistSeries = new SimpleXYSeries("Audio");
+    private LinkedList<Number> randHist = new LinkedList<Number>();
+    private final int HISTORY_SIZE = 1024;
+    
+    
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+
+        // get handles to our View defined in layout.xml:
+        dynamicPlot = (XYPlot) findViewById(R.id.dynamicPlot);
+ 
+        // sets up the plot that will be updated
+        plotUpdater = new mPlotUpdater(dynamicPlot);
+
+        // start a new instance of a class that will generate data
+        //dataGen data = new dataGen();
+        audioGen audioData = new audioGen();
+        
+        // hook up the plotUpdater to the data model:
+        //data.addObserver(plotUpdater);
+        audioData.addObserver( plotUpdater );
+        
+        // kick off the data generating thread:
+        //new Thread(data).start();
+        new Thread(audioData).start();
+        
+    }
+    
+    protected void alertBox(String title, byte[] myMessage)
+    {
+    	String convToStr = new String();
+    	int maxLen = 15; // max of 15 lines...
+    	if ( myMessage.length < maxLen )
+    		maxLen = myMessage.length;
+    	
+    	for( int i = 0; i < maxLen; i++)
+    		convToStr += String.valueOf( myMessage[i] ) + "\n";
+    	
+	    new AlertDialog.Builder(this)
+	       .setMessage(convToStr)
+	       .setTitle(title)
+	       .setCancelable(false)
+	       .setNeutralButton(android.R.string.cancel,
+	          new DialogInterface.OnClickListener() {
+	          public void onClick(DialogInterface dialog, int whichButton){}
+	          })
+	       .show();
+    }
+    
+    protected void alertBox(String title, String myMessage)
+    {  	
+	    new AlertDialog.Builder(this)
+	       .setMessage(myMessage)
+	       .setTitle(title)
+	       .setCancelable(false)
+	       .setNeutralButton(android.R.string.cancel,
+	          new DialogInterface.OnClickListener() {
+	          public void onClick(DialogInterface dialog, int whichButton){}
+	          })
+	       .show();
+    }
+}

@@ -1,0 +1,85 @@
+package com.example;
+
+import java.text.DecimalFormat;
+import java.util.Observable;
+import java.util.Observer;
+
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
+
+import com.androidplot.Plot;
+import com.androidplot.xy.BoundaryMode;
+import com.androidplot.xy.LineAndPointFormatter;
+import com.androidplot.xy.XYPlot;
+import com.androidplot.xy.XYStepMode;
+
+public class TestPlotActivity extends Activity {
+	
+    // redraws a plot whenever an update is received:
+    private class mPlotUpdater implements Observer {
+        Plot plot;
+        public mPlotUpdater(Plot plot) {
+            this.plot = plot;
+        }
+        @Override
+        public void update(Observable o, Object arg) {
+            try {
+				plot.postRedraw();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
+    }
+	
+    private XYPlot dynamicPlot;
+    private XYPlot staticPlot;
+    private mPlotUpdater plotUpdater;
+    
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        /*
+        // get handles to our View defined in layout.xml:
+        dynamicPlot = (XYPlot) findViewById(R.id.dynamicPlot);
+ 
+        plotUpdater = new mPlotUpdater(dynamicPlot);
+        
+        // only display whole numbers in domain labels
+        dynamicPlot.getGraphWidget().setDomainValueFormat(new DecimalFormat("0"));
+        */
+        // getInstance and position data sets:
+        dataGen data = new dataGen();
+        /*
+        DynamicSeries randSeries = new DynamicSeries(data, "RandSeries");        
+        
+        // create a series using a temporary formatter, with a transparent fill applied immediately
+        dynamicPlot.addSeries(randSeries, new LineAndPointFormatter(Color.rgb(0, 0, 0), Color.rgb(0, 80, 0),  
+                Color.rgb(200, 50, 50)));
+        
+        dynamicPlot.setGridPadding(5, 0, 5, 0);
+        
+        // hook up the plotUpdater to the data model:
+        data.addObserver(plotUpdater);
+        dynamicPlot.setDomainStepMode(XYStepMode.SUBDIVIDE);
+        int debug = randSeries.size();
+        dynamicPlot.setDomainStepValue(randSeries.size());
+        
+        // thin out domain/range tick labels so they don't overlap each other:
+        dynamicPlot.setTicksPerDomainLabel(3);
+        dynamicPlot.setTicksPerRangeLabel(1);
+        dynamicPlot.disableAllMarkup();
+ 
+        // freeze the range boundaries:
+        dynamicPlot.setRangeBoundaries(-100, 100, BoundaryMode.AUTO);
+ 
+        */
+        // kick off the data generating thread:
+        new Thread(data).start();
+        
+    
+    }
+}

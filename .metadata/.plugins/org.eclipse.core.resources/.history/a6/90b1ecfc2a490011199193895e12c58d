@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="programNote">This program plots audio data as a waveform</string>
+    <string name="app_name">DynPlot_AudioFFT</string>
+
+</resources>

@@ -1,0 +1,123 @@
+package com.example;
+
+import java.util.Observable;
+import java.util.Observer;
+
+import android.media.AudioRecord;
+import android.media.MediaRecorder;
+
+public class audioGen implements Runnable {
+	
+    // encapsulates management of the observers watching this 
+	// data source for update events:
+    class MyObservable extends Observable {
+    	
+	    public void notifyObservers(audioGen b) {
+	        super.notifyObservers(b);	        
+	    }
+	    
+	    public void clearChanged()
+	    {
+	    	super.clearChanged();
+	    }
+	    
+	    public void setChanged()
+	    {
+    		super.setChanged();
+	    }
+    }
+      
+	private int sizeInShorts = 1024;
+	private boolean isRec = false;
+    private AudioRecord mRecorder = null;
+    public short[] audioData = new short[sizeInShorts];
+    private static final short offsetInShorts = 0;
+    private static final int sampleRateInHz = 8000;
+    public static final int channelConfig = android.media.AudioFormat.CHANNEL_IN_DEFAULT;
+    public static final int audioFormat = android.media.AudioFormat.ENCODING_DEFAULT;
+    
+    private MyObservable notifier;
+    {
+        notifier = new MyObservable();
+    }
+
+    /**
+     * Running thread that creates the audio data
+     */
+    public void run(){
+    	AppLog.APP_TAG = "audioGen";    	
+    	mRecorder = new  AudioRecord(MediaRecorder.AudioSource.MIC, 
+    			sampleRateInHz, channelConfig, audioFormat, sizeInShorts);
+    	while( mRecorder.getState() <= 0 )
+    	{
+    		AppLog.logString("Trying to initialize mRecorder with: \n" + 
+    				"sampleRateInHz: " + sampleRateInHz + "\n" +
+    				"channelConfig: " + channelConfig + "\n" +
+    				"audioFormat: " + audioFormat + "\n" +
+    				"sizeInShorts: " + sizeInShorts + "\n");
+    		
+	    	mRecorder = new  AudioRecord(MediaRecorder.AudioSource.MIC, 
+	    			sampleRateInHz, channelConfig, audioFormat, sizeInShorts);
+	    	
+	    	sizeInShorts = sizeInShorts * 2; // Must be multiple of two;
+    	}
+    	AppLog.logString("mRecorder.getChannelConfiguration(): " + mRecorder.getChannelConfiguration());
+    	
+    	if( mRecorder.getState() > 0 ) // Initialized
+    	{
+			try{
+				mRecorder.startRecording();
+				isRec = true;
+				
+				int result = 0;
+			    //audioData = new byte[bufferSize];
+			    audioData = new short[sizeInShorts];
+				// While the record button is pressed...
+		    	while( isRec )
+		    	{
+		    		mRecorder.read(audioData, offsetInShorts, sizeInShorts);
+			    	
+			    	if ( result == AudioRecord.ERROR_INVALID_OPERATION )
+			    	{
+			    		System.out.println(".read() failed unable to perform AudioRecord.read()\n exiting");
+			    		break;
+			    	}
+					notifier.setChanged();
+					notifier.notifyObservers(this);
+					notifier.clearChanged();			    		
+		    	}
+			}catch( IllegalStateException e ){
+				e.printStackTrace();
+			}
+    	}
+    	else
+    		AppLog.logString("mRecorder.getState: " + mRecorder.getState());
+    }
+    
+    public double[] getDataAsDouble()
+    {
+    	double[] result = new double[audioData.length];
+    
+    	return result;
+    }
+    
+    public int getBufferSize()
+    {
+    	return sizeInShorts;
+    }
+    
+    
+    public short[] getShorts()
+    {
+    	return audioData;
+    }
+    
+    public void addObserver(Observer observer) {
+        notifier.addObserver(observer);
+    }
+ 
+    public void removeObserver(Observer observer) {
+        notifier.deleteObserver(observer);
+    }
+
+}

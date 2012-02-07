@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="fill_parent"
+      android:layout_height="200px"
+      android:layout_weight="1">
+    
+      <CheckBox
+        android:id="@+id/FFT_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="FFT" />
+        
+	</LinearLayout>
+    
+	<LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:layout_weight="1">
+		<com.androidplot.xy.XYPlot
+			android:id="@+id/dynamicPlot"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:layout_marginTop="10px"
+			android:layout_marginLeft="10px"
+			android:layout_marginRight="10px"
+			title="Dynamic Plot" />      
+		</LinearLayout>
+		
+          
+</LinearLayout>

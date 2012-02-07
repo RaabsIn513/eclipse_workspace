@@ -1,0 +1,360 @@
+package com.example;
+
+import java.text.DecimalFormat;
+import java.util.LinkedList;
+import java.util.Observable;
+import java.util.Observer;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.os.PowerManager;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+
+import com.androidplot.xy.BarFormatter;
+import com.androidplot.xy.BarRenderer;
+import com.androidplot.xy.BoundaryMode;
+import com.androidplot.xy.LineAndPointFormatter;
+import com.androidplot.xy.SimpleXYSeries;
+import com.androidplot.xy.XYPlot;
+import com.androidplot.xy.XYStepMode;
+
+public class TestPlotActivity extends Activity {
+	
+    // redraws a plot whenever an update is received:
+    private class mPlotUpdater implements Observer {
+        XYPlot plot;
+        // Constructor sets up the series
+        public mPlotUpdater(XYPlot plot) {
+        	AppLog.APP_TAG = "mPlotUpdater";
+        	AppLog.logString("isFFT_On: " + isFFT_On);
+            this.plot = plot;
+            
+        }
+
+		@Override
+        public void update(Observable o, Object arg) {
+			AppLog.APP_TAG = "update";
+			AppLog.logString("isFFT_On: " + isFFT_On);
+			
+			audioGen income = (audioGen)arg;	// cast the incoming arg object as a audioGen object
+			
+			short[] raw = income.getShorts();		// raw mic data
+			double[] data = convShort2Double(raw);
+			
+			if( !isFFT_On )
+			{
+				AppLog.APP_TAG = "data";
+				String debug = null;
+				for( int i = 0; i < data.length; i++)
+					debug = debug + " " + data[i];
+				AppLog.logString(debug);
+				plot.setRangeBoundaries(-12000, 12000, BoundaryMode.FIXED);
+				plot.setDomainBoundaries(0, HISTORY_SIZE, BoundaryMode.AUTO);
+				
+				for( int i = 0; i < data.length; i++)
+				{	
+					//ampMaxHist = graphAxisLine(max(data));
+					//ampMinHist = graphAxisLine(min(data));
+					audioHist.addLast((Number)data[i]);
+					if( i % ((data.length)/2) == 0 ) // redraw graph twice per data set. lol
+					{
+						int maxAmp = max( data );				
+						int minAmp = min( data );
+						
+						// update the graph. 
+						audioHistSeries.setModel(audioHist, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY);
+						// Draw min and max lines
+						graphLine((Number)0, (Number)maxAmp, (Number)HISTORY_SIZE, (Number)maxAmp, ampMaxSeries);
+						graphLine((Number)0, (Number)minAmp, (Number)HISTORY_SIZE, (Number)minAmp, ampMinSeries);
+						try {
+							dynamicPlot.postRedraw(false);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+					if ( audioHist.size() > HISTORY_SIZE )
+						audioHist.removeFirst();
+				}
+			}	// ^^ for waveform
+			else if( isFFT_On )
+			{
+				sectionalFFT(data);
+			}
+        }
+		
+		/**
+		 * sectionalFFT takes an array with size greater than HISTORY_SIZE
+		 * and creates FFT frames to graph. The graph's domain is equal
+		 * to HISTORY_SIZE
+		 * @param input
+		 */
+		private void sectionalFFT( double[] input )
+		{
+			AppLog.APP_TAG = "sectionalFFT";
+			// Split this data into pieces that are HISTORY_SIZE elements in size
+			int nFrames = input.length / HISTORY_SIZE;			// Number of frames we will create from a mic read
+			Number[] graphable = new Number[HISTORY_SIZE];
+			double[] section = new double[HISTORY_SIZE];
+			
+			AppLog.logString("input.length: " + input.length +
+					" nFrames: " + nFrames);
+			
+			// for the number of sections
+			for ( int j = 1; j < nFrames + 1; j++ )
+			{
+				// Get the section
+				for( int i = 0; i < HISTORY_SIZE; i++ )
+					section[i] = input[i*j];				// get the fft magnitude of 64 value frame
+				graphable = fft_mag( section );
+				audioHist.clear();
+				for( int i = 0; i < graphable.length; i++)
+					audioHist.add(i, graphable[i]);
+					
+				// adjust the Range (y axis) to be as long as it needs to be. 
+				//plot.setRangeBoundaries(0, max(graphable), BoundaryMode.FIXED);
+				plot.setRangeBoundaries(30, 100, BoundaryMode.FIXED);
+				// update the graph. 
+				audioHistSeries.setModel(audioHist, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY);
+				plot.setDomainBoundaries(0, graphable.length, BoundaryMode.FIXED);
+				try {
+					dynamicPlot.postRedraw();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// Expected to be in double[]
+		private Number[] fft_mag( double[] data )
+		{
+			int numUniquePts = (data.length + 1) / 2;	// assume our data is always a poewr of 2
+			Complex[] x 	= new Complex[data.length]; // initialize a Complex[]
+			Complex[] x2    = new Complex[numUniquePts];
+			double[] Xd 	= new double[numUniquePts];
+			Number[] result = new Number[numUniquePts];
+			
+			for( int i = 0; i < data.length; i++ )		// create Complex[] of the audio data
+				x[i] = new Complex( data[i], 0); 		// Complex(real, imaginary);
+			
+			x = FFT.fft(x);
+			// FFT is symetric take away half
+			for( int i = 0; i < numUniquePts; i++ )
+				x2[i] = x[i];
+			// Magnitude
+			Xd = FFT.abs(x2);
+			// Scale the fft so that it is not a function of the length of x2
+			//Xd = FFT.scale(Xd, 16/Xd.length);
+			// Square the magnitude to get power.
+			Xd = FFT.power(Xd, 2);
+			// The DC component and Nyquist component, are unique 
+			// and should not be multiplied by 2. Make a sub array of Xd
+			for( int i = 1; i < Xd.length - 2; i++ )
+				Xd[i] = Xd[i]*2;
+			
+			// chopping off the fist and last values?
+			for( int i = 0; i < Xd.length; i++ )
+				result[i] = (Number)(10*Math.log10(Xd[i]));
+			
+			return result;
+		} 
+		
+		private void graphLine( Number x1, Number y1, Number x2, Number y2, SimpleXYSeries ser )
+		{
+			LinkedList<Number> arrayMax = new LinkedList<Number>();
+			arrayMax.add(0, x1); 	
+			arrayMax.add(1, y1);	
+			arrayMax.add(2, x2);	
+			arrayMax.add(3, y2);
+			ser.setModel(arrayMax, SimpleXYSeries.ArrayFormat.XY_VALS_INTERLEAVED);
+		}
+		
+		private void graphAsDataGen( Object arg, SimpleXYSeries Ser, LinkedList<Number> yPts)
+		{
+	        dataGen income = (dataGen)arg;
+	        Number y = income.getY();
+	        
+			if ( audioHist.size() > HISTORY_SIZE )
+				audioHist.removeFirst();
+			
+			audioHist.addLast(y);
+
+			// update the graph. 
+			Ser.setModel(yPts, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY);
+			plot.setRangeBoundaries(-1, 1, BoundaryMode.AUTO);
+			 
+			try {
+				dynamicPlot.postRedraw();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		private int max( double[] data )
+		{
+			int result = 0;
+			for( int i = 0; i < data.length; i++ )
+			{
+				if( data[i] >  result )
+					result = (int)data[i];
+			}
+			return result;
+		}
+		
+		private int max( LinkedList<Number> list )
+		{
+			int result = 0;
+			for( int i = 0; i < list.size(); i++ )
+			{
+				if( list.get(i).intValue() >  result )
+					result = list.get(i).intValue();
+			}
+			return result;
+		}
+		
+		private int min( double[] data )
+		{
+			int result = 0;
+			for( int i = 0; i < data.length; i++ )
+			{
+				if( data[i] <  result )
+					result = (int)data[i];
+			}
+			return result;
+		}
+		
+		private double[] convShort2Double( short[] data )
+		{
+			double[] result = new double[data.length];
+			for( int i = 0; i < data.length; i++ )
+				result[i] = (double)data[i];
+			
+			return result;
+		}
+    }
+	
+    private XYPlot dynamicPlot = null;
+    private mPlotUpdater plotUpdater;
+    private SimpleXYSeries audioHistSeries = new SimpleXYSeries("Audio");
+    private SimpleXYSeries ampMaxSeries = new SimpleXYSeries("Max Amp");
+    private SimpleXYSeries ampMinSeries = new SimpleXYSeries("Min Amp");
+    private LinkedList<Number> audioHist = new LinkedList<Number>();
+    private LinkedList<Number> ampMaxHist = new LinkedList<Number>();
+    private LinkedList<Number> ampMinHist = new LinkedList<Number>();
+    private final int HISTORY_SIZE = 64;
+    private static boolean isFFT_On = false;
+    private static boolean init = false;
+    private static audioGen audioData = null;
+    private static Thread audioGenThread = null;
+    
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+    	AppLog.APP_TAG = "TestPlotActivity";
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+                
+        // get handles to our View defined in layout.xml:
+        dynamicPlot = (XYPlot) findViewById(R.id.dynamicPlot);
+ 
+        plotUpdater = new mPlotUpdater(dynamicPlot);
+ 
+        // only display whole numbers in domain labels
+        dynamicPlot.getGraphWidget().setDomainValueFormat(new DecimalFormat("0"));
+ 
+        // getInstance and position datasets:
+        data = new audioGen();
+        SampleDynamicSeries sine1Series = new SampleDynamicSeries(data, 0, "Sine 1");
+        SampleDynamicSeries sine2Series = new SampleDynamicSeries(data, 1, "Sine 2");
+ 
+        // create a series using a temporary formatter, with a transparent fill applied immediately
+        dynamicPlot.addSeries(sine1Series, new LineAndPointFormatter(Color.rgb(0, 0, 0), null, Color.rgb(0, 80, 0),  
+                Color.argb(200, 50, 80, 50)));
+ 
+        // create a series using an instantiated formatter, with some transparency applied after creation:
+        LineAndPointFormatter form1 = new LineAndPointFormatter(Color.rgb(0, 0, 200), null, Color.rgb(0, 0, 80));
+        form1.getFillPaint().setAlpha(220);
+        dynamicPlot.addSeries(sine2Series, form1);
+        dynamicPlot.setGridPadding(5, 0, 5, 0);
+ 
+        // hook up the plotUpdater to the data model:
+        data.addObserver(plotUpdater);
+ 
+        dynamicPlot.setDomainStepMode(XYStepMode.SUBDIVIDE);
+        dynamicPlot.setDomainStepValue(sine1Series.size());
+ 
+        // thin out domain/range tick labels so they dont overlap each other:
+        dynamicPlot.setTicksPerDomainLabel(5);
+        dynamicPlot.setTicksPerRangeLabel(3);
+        dynamicPlot.disableAllMarkup();
+ 
+        // freeze the range boundaries:
+        dynamicPlot.setRangeBoundaries(-100, 100, BoundaryMode.FIXED);
+ 
+        // kick off the data generating thread:
+        new Thread(data).start();
+        AppLog.logString("starting audioData Thread");
+    }
+    
+    protected void setUpForWave()
+    {
+    	dynamicPlot.getGraphWidget().setDomainValueFormat(new DecimalFormat("0"));
+    	
+    	LineAndPointFormatter lpf = new LineAndPointFormatter(
+    			Color.rgb(0, 0, 200),
+    			Color.rgb(0, 0, 200),
+    			null);
+    	dynamicPlot.addSeries(audioHistSeries, lpf);
+    	
+    	dynamicPlot.setGridPadding(5, 0, 5, 0);
+    	
+    	dynamicPlot.setDomainStepMode(XYStepMode.SUBDIVIDE);
+    	dynamicPlot.setDomainStepValue(audioHistSeries.size());
+    	
+        // thin out domain/range tick labels so they dont overlap each other:
+    	dynamicPlot.setTicksPerDomainLabel(5);
+    	dynamicPlot.setTicksPerRangeLabel(3);
+    	dynamicPlot.disableAllMarkup();
+ 
+        // freeze the range boundaries:
+    	dynamicPlot.setRangeBoundaries(-30000, 30000, BoundaryMode.FIXED);
+    }
+    
+    protected void alertBox(String title, byte[] myMessage)
+    {
+    	String convToStr = new String();
+    	int maxLen = 15; // max of 15 lines...
+    	if ( myMessage.length < maxLen )
+    		maxLen = myMessage.length;
+    	
+    	for( int i = 0; i < maxLen; i++)
+    		convToStr += String.valueOf( myMessage[i] ) + "\n";
+    	
+	    new AlertDialog.Builder(this)
+	       .setMessage(convToStr)
+	       .setTitle(title)
+	       .setCancelable(false)
+	       .setNeutralButton(android.R.string.cancel,
+	          new DialogInterface.OnClickListener() {
+	          public void onClick(DialogInterface dialog, int whichButton){}
+	          })
+	       .show();
+    }
+    
+    protected void alertBox(String title, String myMessage)
+    {  	
+	    new AlertDialog.Builder(this)
+	       .setMessage(myMessage)
+	       .setTitle(title)
+	       .setCancelable(false)
+	       .setNeutralButton(android.R.string.cancel,
+	          new DialogInterface.OnClickListener() {
+	          public void onClick(DialogInterface dialog, int whichButton){}
+	          })
+	       .show();
+    }
+}

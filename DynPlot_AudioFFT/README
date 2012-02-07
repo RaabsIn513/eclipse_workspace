@@ -1,0 +1,11 @@
+A Dynamic bar plot hooked up to an object that passes bytes read from the microphone and applies the FFT (GoogleDocs below)
+
+continuously reads 2048 @ 16kHz bytes from the microphone. Note use of notifyObserver(b) function that triggers the graph to update. 
+
+This setup (with more tweaking) shows the best promise of our debug interface.
+
+Known Issues:
+
+> No stop/start buttons
+> X, Y labels incorrect. 
+

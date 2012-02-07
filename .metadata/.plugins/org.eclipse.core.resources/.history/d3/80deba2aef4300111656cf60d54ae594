@@ -1,0 +1,71 @@
+package com.example;
+
+import java.util.Observable;
+import java.util.Observer;
+import java.util.Random;
+
+public class dataGen implements Runnable {
+	
+    // encapsulates management of the observers watching this 
+	// datasource for update events:
+    class MyObservable extends Observable {
+	    @Override
+	    public void notifyObservers() {
+	        setChanged();
+	        super.notifyObservers();
+	    }
+    }
+    
+    private int dataGenX = 0;
+    private int dataGenY = 0;
+    private static final int SAMPLE_SIZE = 10;
+    
+    private MyObservable notifier;
+    {
+        notifier = new MyObservable();
+    }
+    
+    public void run(){
+    	Random rand = new Random();
+    	
+    	while( true )
+    	{
+    		try {
+				Thread.sleep(100);
+				
+				dataGenY = rand.nextInt(100);		
+				
+				notifier.notifyObservers();
+    		} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+    	}
+    }
+    
+    public Number getX( int index )
+    {
+    	return (Number) dataGenX;
+    }
+    
+    public Number getY( int index )
+    {
+        if (index >= SAMPLE_SIZE) {
+            throw new IllegalArgumentException();
+        }
+    	return (Number) dataGenY;
+    }
+    
+    public int getItemCount()
+    {
+    	return 10;
+    }
+    
+    public void addObserver(Observer observer) {
+        notifier.addObserver(observer);
+    }
+ 
+    public void removeObserver(Observer observer) {
+        notifier.deleteObserver(observer);
+    }
+
+}

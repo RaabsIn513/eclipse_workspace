@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;lib&apos;&#x0D;&#x0A;- Original project: &apos;MyActivity&apos;&#x0D;&#x0A;- Destination element: &apos;lib&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Androidplot-core-0.4.4-release.jar&#x0D;&#x0A;     Androidplot-core-0.4.4-javadoc.jar" description="Copy files" element1="lib/Androidplot-core-0.4.4-release.jar" element2="lib/Androidplot-core-0.4.4-javadoc.jar" files="2" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1327113566330" target="/testPlot/lib" units="0" version="1.0"/>
+</session>

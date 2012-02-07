@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="parent">parent</string>
+    <string name="first">first column</string>
+    <string name="second">second column</string>
+    <string name="third">third column</string>
+    <string name="myButton">clicky</string>
+    <string name="app_name">Layout_Play</string>
+
+</resources>

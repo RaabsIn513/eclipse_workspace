@@ -1,0 +1,101 @@
+package com.example;
+
+import java.util.Observable;
+import java.util.Observer;
+import android.media.AudioRecord;
+import android.media.MediaRecorder;
+
+public class audioGen implements Runnable {
+	
+    // encapsulates management of the observers watching this 
+	// data source for update events:
+    class MyObservable extends Observable {
+    	
+	    public void notifyObservers(dataGen b) {
+	        //setChanged();
+	        boolean debug2 = hasChanged();
+	        super.notifyObservers(b);	        
+	    }
+	    
+	    public void clearChanged()
+	    {
+	    	super.clearChanged();
+	    }
+	    
+	    public void setChanged()
+	    {
+    		super.setChanged();
+	    }
+    }
+      
+	private int bufferSize = 1024;
+	private boolean isRec = false;
+    private AudioRecord mRecorder = null;
+    private byte[] audioData = new byte[bufferSize];
+    //private MediaPlayer   mPlayer = null;
+    private static final int offsetInBytes = 0;
+    private static final int sampleRateInHz = 8000;
+    private static final int channelConfig = android.media.AudioFormat.CHANNEL_IN_DEFAULT;
+    private static final int audioFormat = android.media.AudioFormat.ENCODING_DEFAULT;
+    
+    private MyObservable notifier;
+    {
+        notifier = new MyObservable();
+    }
+    
+    public int getBufferSize()
+    {
+    	return bufferSize;
+    }
+    
+    public byte[] getBuffer()
+    {
+    	return audioData;
+    }
+    
+    public void run(){
+    	
+    	mRecorder = new  AudioRecord(MediaRecorder.AudioSource.MIC, 
+    			sampleRateInHz, channelConfig, audioFormat, bufferSize);
+    	
+    	if( mRecorder.getState() > 0 ) // Initialized
+    	{
+			try{
+				mRecorder.startRecording();
+				isRec = true;
+				
+				int result = 0;
+			    audioData = new byte[bufferSize];
+			    // While the record button is pressed...
+		    	while( isRec )
+		    	{
+			    	result = mRecorder.read(audioData, offsetInBytes, bufferSize);
+			    	
+			    	if ( result == AudioRecord.ERROR_INVALID_OPERATION )
+			    	{
+			    		System.out.println(".read() failed unable to perform AudioRecord.read()\n exiting");
+			    		break;
+			    	}
+			    	else
+			    	{
+						notifier.setChanged();
+						notifier.notifyObservers(this);
+						notifier.clearChanged();
+			    	}
+		    	}
+				
+			}catch( IllegalStateException e ){
+				e.printStackTrace();
+			}
+    	}
+    }
+    
+    public void addObserver(Observer observer) {
+        notifier.addObserver(observer);
+    }
+ 
+    public void removeObserver(Observer observer) {
+        notifier.deleteObserver(observer);
+    }
+
+}

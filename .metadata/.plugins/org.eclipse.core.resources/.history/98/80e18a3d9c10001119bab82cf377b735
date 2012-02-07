@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, HelloAndroid2Activity!</string>
+    <string name="robStr">Don't worry scrow!</string>
+    <string name="app_name">HelloAndroid2</string>
+
+</resources>
