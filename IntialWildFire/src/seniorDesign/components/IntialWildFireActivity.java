@@ -32,7 +32,6 @@ public class IntialWildFireActivity extends Activity {
             // Line plot
             if( dispForm == "WAVE")
             {
-	            
 	            LineAndPointFormatter series1Format = new LineAndPointFormatter(
 	                    Color.rgb(10, 250, 0),     // line color
 	                    Color.rgb(10, 250, 0),      // point color

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, SAS_revActivity!</string>
+    <string name="app_name">SAS_rev</string>
+    <string name="viewWave_btText">View audio wave plot</string>
+    <string name="viewFFT_btText">View FFT plot</string>
+    <string name="setThresh_btText">Set the threshold value</string>"
+
+</resources>
