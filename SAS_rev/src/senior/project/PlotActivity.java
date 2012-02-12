@@ -10,13 +10,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.KeyEvent;
 
 import com.androidplot.xy.BarFormatter;
 import com.androidplot.xy.BarRenderer;
 import com.androidplot.xy.BoundaryMode;
 import com.androidplot.xy.LineAndPointFormatter;
 import com.androidplot.xy.SimpleXYSeries;
+import com.androidplot.xy.SimpleXYSeries.ArrayFormat;
 import com.androidplot.xy.XYPlot;
 import com.androidplot.xy.XYStepMode;
 
@@ -36,13 +36,24 @@ public class PlotActivity extends Activity {
             // Line plot
             if( dispForm == "WAVE")
             {
-	            
-	            LineAndPointFormatter series1Format = new LineAndPointFormatter(
-	                    Color.rgb(10, 250, 0),     // line color
-	                    Color.rgb(10, 250, 0),      // point color
+                LineAndPointFormatter maxFormat = new LineAndPointFormatter(
+                        Color.rgb(0, 25, 250),      // line color
+                        Color.rgb(0, 25, 250),      // point color
+                        null );              	    // fill color (optional)
+                
+                LineAndPointFormatter minFormat = new LineAndPointFormatter(
+                        Color.rgb(250, 25, 0),      // line color
+                        Color.rgb(250, 25, 0),      // point color
+                        null );              	    // fill color (optional)
+            	
+	            LineAndPointFormatter audioFormat = new LineAndPointFormatter(
+	                    Color.rgb(25, 250, 0),     // line color
+	                    Color.rgb(25, 250, 0),      // point color
 	                    null );              	   // fill color (optional)
 	            
-	            plot.addSeries(audioHistSeries, series1Format);
+	            plot.addSeries(audioHistSeries, audioFormat);
+	            plot.addSeries(maxSeries, maxFormat);
+	            plot.addSeries(minSeries, minFormat);
             }
             // Bar plot
             if( dispForm == "FFT")
@@ -85,6 +96,7 @@ public class PlotActivity extends Activity {
 				sectionalFFT( data );
 			if( dispForm == "WAVE" )
 				waveform( data );
+			
         }
 		
 		/**
@@ -133,10 +145,18 @@ public class PlotActivity extends Activity {
 		{
 			if( audioHist.size() >= HISTORY_SIZE)
 				audioHist.clear();
+		
+			double Max = max(input);
+			double Min = min(input);
+			manageHighSum( Max );
 			
+			// load the series. 
 			for( int i = 0; i < HISTORY_SIZE; i++)
-				audioHist.addLast(input[i]);
-
+				audioHist.addLast(input[i]);	
+			
+			double avg = SumHigh / AMP_HISTORY_SIZE;
+			graphLine(0, avg, 64, avg, maxSeries);
+			graphLine(0, Max, 64, Max, minSeries);
 			audioHistSeries.setModel(audioHist, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY);
 			dynamicPlot.setRangeBoundaries(-30000, 30000, BoundaryMode.FIXED);
 			try {
@@ -145,8 +165,19 @@ public class PlotActivity extends Activity {
 				e.printStackTrace();
 			}
 		}
-		
+
+		private void graphLine( Number X1, Number Y1, Number X2, Number Y2, SimpleXYSeries ser )
+		{
+			LinkedList<Number> points = new LinkedList<Number>();
+			points.add(X1);
+			points.add(Y1);
+			points.add(X2);
+			points.add(Y2);
+			
+			ser.setModel(points, ArrayFormat.XY_VALS_INTERLEAVED);
+		}
 		// Expected to be in double[]
+		
 		private Number[] fft_mag( double[] data )
 		{
 			int numUniquePts = (data.length + 1) / 2;	// assume our data is always a poewr of 2
@@ -180,40 +211,40 @@ public class PlotActivity extends Activity {
 			return result;
 		} 
 		
-		private int max( double[] list )
+		private double max( double[] list )
 		{
-			int result = 0;
+			double result = 0;
 			for( int i = 0; i < list.length; i++ )
 			{
-				if( list[i] > (double)result )
-					result = (int)list[i] + 1;
+				if( list[i] > result )
+					result = list[i] + 1;
 			}
 			return result;
 		}
 		
-		private int max( Number[] list )
+		private double min( double[] list )
 		{
-			int result = 0;
+			double result = 0;
 			for( int i = 0; i < list.length; i++ )
 			{
-				if( list[i].intValue() >  result )
-					result = list[i].intValue() + 1;
+				if( list[i] < result )
+					result = list[i] + 1;
 			}
 			return result;
 		}
 		
-		private int min( Number[] list )
+		private void manageHighSum( double ValIn )
 		{
-			int result = 0;
-			for( int i = 0; i < list.length; i++ )
+			ampHist.addLast(ValIn);
+			if( ampHist.size() < AMP_HISTORY_SIZE )
+				SumHigh += ampHist.getLast();
+			else
 			{
-				if( list[i].intValue() <  result )
-					result = list[i].intValue() + 1;
+				SumHigh = SumHigh - ampHist.getFirst() + ampHist.getLast();
+				ampHist.removeFirst();
 			}
-			return result;
 		}
-		
-		
+				
 		private double[] convShort2Double( short[] data )
 		{
 			double[] result = new double[data.length];
@@ -227,8 +258,14 @@ public class PlotActivity extends Activity {
     private XYPlot dynamicPlot = null;
     private mPlotUpdater plotUpdater;
     private SimpleXYSeries audioHistSeries = new SimpleXYSeries("Audio");
+    private SimpleXYSeries maxSeries       = new SimpleXYSeries("Avg Max");
+    private SimpleXYSeries minSeries       = new SimpleXYSeries("Current Max");
+    private LinkedList<Double> ampHist     = new LinkedList<Double>();
     private LinkedList<Number> audioHist = new LinkedList<Number>();
     private final int HISTORY_SIZE = 64;
+    public static int AMP_HISTORY_SIZE = 32;
+    public static Double SumHigh = 0.0;
+    public static Double SumLow  = 0.0;
     public static String dispForm = "WAVE"; // do wave plot by default if no bunlde is passed in
 	public static audioGen audioData;
 	public static Thread audioThread;
@@ -272,7 +309,6 @@ public class PlotActivity extends Activity {
     return;
     }
     
-	
     protected void alertBox(String title, String myMessage)
     {
 	    new AlertDialog.Builder(this)

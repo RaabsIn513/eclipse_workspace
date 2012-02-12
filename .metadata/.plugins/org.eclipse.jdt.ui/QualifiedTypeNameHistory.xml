@@ -18,14 +18,14 @@
 <fullyQualifiedTypeName name="com.androidplot.xy.BarFormatter"/>
 <fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
-<fullyQualifiedTypeName name="com.androidplot.xy.SimpleXYSeries.ArrayFormat"/>
 <fullyQualifiedTypeName name="android.widget.CompoundButton.OnCheckedChangeListener"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="seniorDesign.components.R.layout"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="com.sun.xml.internal.bind.v2.model.core.Ref"/>
 <fullyQualifiedTypeName name="java.sql.Ref"/>
 <fullyQualifiedTypeName name="senior.project.R.layout"/>
-<fullyQualifiedTypeName name="senior.project.R.id"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="senior.project.R.id"/>
+<fullyQualifiedTypeName name="com.androidplot.xy.SimpleXYSeries.ArrayFormat"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>

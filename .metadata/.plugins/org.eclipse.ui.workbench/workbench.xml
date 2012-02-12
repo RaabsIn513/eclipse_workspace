@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="34" version="2.0">
+<workbench progressCount="37" version="2.0">
 <workbenchAdvisor/>
 <window height="728" maximized="true" width="1024" x="-8" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -20,7 +20,7 @@
 <coolItem id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" itemType="typeToolBarContribution" x="38" y="22"/>
 <coolItem id="org.eclipse.wst.ws.explorer.explorer" itemType="typeToolBarContribution" x="38" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="61" y="22"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
@@ -41,13 +41,18 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SAS_revActivity.java" partName="SAS_revActivity.java" path="E:/eclipse_workspace/SAS_rev/src/senior/project/SAS_revActivity.java" title="SAS_revActivity.java" tooltip="SAS_rev/src/senior/project/SAS_revActivity.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlotActivity.java" partName="PlotActivity.java" path="E:/eclipse_workspace/SAS_rev/src/senior/project/PlotActivity.java" title="PlotActivity.java" tooltip="SAS_rev/src/senior/project/PlotActivity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SAS_rev/src/senior/project/PlotActivity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="8781" selectionTopPixel="3430"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SAS_revActivity.java" partName="SAS_revActivity.java" path="E:/eclipse_workspace/SAS_rev/src/senior/project/SAS_revActivity.java" title="SAS_revActivity.java" tooltip="SAS_rev/src/senior/project/SAS_revActivity.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SAS_rev/src/senior/project/SAS_revActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="733" selectionTopPixel="85"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -94,7 +99,7 @@
 <view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" partName="Data Source Explorer"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
+<expanded>&#x0A;<category IMemento.internal.id="Warnings"/>
 <category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
@@ -379,9 +384,9 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.27306274" ratioLeft="370" ratioRight="985" relationship="2" relative="left"/>
-<info folder="true" part="bottom" ratio="0.6903226" ratioLeft="428" ratioRight="192" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<info part="org.eclipse.ui.editorss" ratio="0.14243543" ratioLeft="193" ratioRight="1162" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.766129" ratioLeft="475" ratioRight="145" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
@@ -479,32 +484,23 @@
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="com.android.ide.eclipse.ddms.views.LogCatView"/>
 <fastViewBars/>
-<layout>
-<mainWindow>
-<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="Type Hierarchy"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.62741935" ratioLeft="389" ratioRight="231" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.62741935" ratioLeft="389" ratioRight="231" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
@@ -512,38 +508,28 @@
 <page content="org.eclipse.jdt.debug.ui.DisplayView" label="LabelNotFound"/>
 <page content="org.eclipse.search.SearchResultView" label="LabelNotFound"/>
 <page content="org.eclipse.wst.xsl.jaxp.debug.ui.view1" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@16caf23" ratio="0.44723248" ratioLeft="606" ratioRight="749" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView">
-<folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">
-<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LogCat"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@16caf23" ratio="0.44723248" ratioLeft="606" ratioRight="749" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView">&#x0A;<folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">&#x0A;<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LogCat"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.43583536" ratioLeft="180" ratioRight="233" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
-<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="679" ratioRight="679" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.debug.ui.ExpressionView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="679" ratioRight="679" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.ExpressionView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 </presentation>
@@ -556,116 +542,162 @@
 <workingSets/>
 <navigationHistory>
 <editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_rev/src/senior/project/PlotActivity.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_rev/src/senior/project/SAS_revActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/SAS_rev/res/layout/main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/IntialWildFire/src/seniorDesign/components/IntialWildFireActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/IntialWildFire/res/layout/main.xml"/>
-<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=IntialWildFire/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;android.app(Activity.class"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.resources.ResourcesEditor" path="/SAS_rev/res/values/strings.xml"/>
+<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=IntialWildFire/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;java.lang(Integer.class"/>
+<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=SAS_rev/lib\/Androidplot-core-0.4.4-release.jar&lt;com.androidplot.xy(SimpleXYSeries.class"/>
+<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=IntialWildFire/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;java.lang(ThreadGroup.class"/>
+<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=IntialWildFire/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;java.lang(ThreadGroup.class"/>
 </editors>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="571" y="0"/>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5547" y="0"/>
 </item>
-<item historyLabel="IntialWildFireActivity.java" index="2">
-<position info="not_deleted" x="7471" y="12"/>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5422" y="0"/>
 </item>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="562" y="0"/>
-</item>
-<item historyLabel="IntialWildFireActivity.java" index="2">
-<position info="not_deleted" x="7471" y="12"/>
-</item>
-<item historyLabel="main.xml" index="3"/>
-<item historyLabel="IntialWildFireActivity.java" index="2">
-<position info="not_deleted" x="7471" y="12"/>
-</item>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="562" y="0"/>
-</item>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="745" y="0"/>
-</item>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="720" y="0"/>
-</item>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="722" y="0"/>
-</item>
-<item historyLabel="IntialWildFireActivity.java" index="2">
-<position info="not_deleted" x="7607" y="0"/>
-</item>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="722" y="0"/>
-</item>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="632" y="0"/>
-</item>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="745" y="0"/>
-</item>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="616" y="15"/>
-</item>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="673" y="0"/>
-</item>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="IntialWildFireActivity.java" index="2">
-<position info="not_deleted" x="7607" y="0"/>
-</item>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="673" y="0"/>
-</item>
-<item historyLabel="Activity.class" index="4">
+<item historyLabel="Integer.class" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="673" y="0"/>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5422" y="0"/>
 </item>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="421" y="0"/>
+<item historyLabel="PlotActivity.java" index="0">
+<position/>
 </item>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="465" y="0"/>
+<item historyLabel="SimpleXYSeries.class" index="3">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="513" y="0"/>
+<item historyLabel="PlotActivity.java" index="0">
+<position/>
 </item>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="513" y="0"/>
+<item historyLabel="ThreadGroup.class" index="4">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="513" y="0"/>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5581" y="0"/>
 </item>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="513" y="0"/>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="6012" y="0"/>
 </item>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="733" y="0"/>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5970" y="0"/>
 </item>
-<item historyLabel="main.xml" index="1"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="main.xml" index="1"/>
-<item active="true" historyLabel="SAS_revActivity.java" index="0">
-<position info="not_deleted" x="733" y="0"/>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5930" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5990" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="6010" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5452" y="9"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="8434" y="9"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="8623" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="1936" y="9"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="8507" y="9"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="8623" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="8621" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5420" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5196" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5137" y="12"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="8717" y="12"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="8863" y="0"/>
+</item>
+<item historyLabel="SAS_revActivity.java" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="8863" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="8808" y="7"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="8808" y="7"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="8584" y="7"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5176" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5204" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5260" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5254" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="7764" y="1"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5207" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5254" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="7764" y="1"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5254" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="7764" y="1"/>
+</item>
+<item historyLabel="ThreadGroup.class" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5808" y="0"/>
+</item>
+<item historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="5754" y="9"/>
+</item>
+<item active="true" historyLabel="PlotActivity.java" index="0">
+<position info="not_deleted" x="8736" y="9"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -684,47 +716,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.resources.ResourcesEditor" name="strings.xml" tooltip="SAS_rev/res/values/strings.xml">
-<persistable path="/SAS_rev/res/values/strings.xml"/>
-</file>
-<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Activity.class" tooltip="android.app.Activity">
-<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=IntialWildFire/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;android.app(Activity.class"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main.xml" tooltip="IntialWildFire/res/layout/main.xml">
-<persistable path="/IntialWildFire/res/layout/main.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IntialWildFireActivity.java" tooltip="IntialWildFire/src/seniorDesign/components/IntialWildFireActivity.java">
-<persistable path="/IntialWildFire/src/seniorDesign/components/IntialWildFireActivity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RecordAudioActivity.java" tooltip="RecordAudio_00/src/novice/nonRelease/RecordAudioActivity.java">
-<persistable path="/RecordAudio_00/src/novice/nonRelease/RecordAudioActivity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main.xml" tooltip="SAS_rev/res/layout/main.xml">
-<persistable path="/SAS_rev/res/layout/main.xml"/>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Integer.class" tooltip="java.lang.Integer">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=IntialWildFire/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;java.lang(Integer.class"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SAS_revActivity.java" tooltip="SAS_rev/src/senior/project/SAS_revActivity.java">
 <persistable path="/SAS_rev/src/senior/project/SAS_revActivity.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="audioGen.java" tooltip="IntialWildFire/src/seniorDesign/components/audioGen.java">
-<persistable path="/IntialWildFire/src/seniorDesign/components/audioGen.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TestPlotActivity.java" tooltip="DynPlot_AudioWave+FFT/src/seniorDesign/component/TestPlotActivity.java">
+<persistable path="/DynPlot_AudioWave+FFT/src/seniorDesign/component/TestPlotActivity.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Select2.java" tooltip="471_Assignment3/src/school/work/Select2.java">
-<persistable path="/471_Assignment3/src/school/work/Select2.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TestPlotActivity.java" tooltip="DynamicPlot_AudioGen/src/com/example/TestPlotActivity.java">
+<persistable path="/DynamicPlot_AudioGen/src/com/example/TestPlotActivity.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="DynPlot_AudioWave+FFT/AndroidManifest.xml">
-<persistable path="/DynPlot_AudioWave+FFT/AndroidManifest.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="dataGen.java" tooltip="DynamicPlot_AudioGen/src/com/example/dataGen.java">
+<persistable path="/DynamicPlot_AudioGen/src/com/example/dataGen.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="IntialWildFire/AndroidManifest.xml">
-<persistable path="/IntialWildFire/AndroidManifest.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlotActivity.java" tooltip="SAS_rev/src/senior/project/PlotActivity.java">
+<persistable path="/SAS_rev/src/senior/project/PlotActivity.java"/>
 </file>
-<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Instrumentation.class" tooltip="android.app.Instrumentation">
-<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=FuckNiggers/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;android.app(Instrumentation.class"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.resources.ResourcesEditor" name="strings.xml" tooltip="SAS_rev/res/values/strings.xml">
+<persistable path="/SAS_rev/res/values/strings.xml"/>
 </file>
-<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="AudioRecord.class" tooltip="android.media.AudioRecord">
-<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=FuckNiggers/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;android.media(AudioRecord.class"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main.xml" tooltip="SAS_rev/res/layout/main.xml">
+<persistable path="/SAS_rev/res/layout/main.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main.xml" tooltip="DynPlot_AudioWave+FFT/res/layout/main.xml">
-<persistable path="/DynPlot_AudioWave+FFT/res/layout/main.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="AndroidManifest.out.out.xml" tooltip="SAS_rev/AndroidManifest.out.out.xml">
+<persistable path="/SAS_rev/AndroidManifest.out.out.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="AndroidManifest.out.xml" tooltip="SAS_rev/AndroidManifest.out.xml">
+<persistable path="/SAS_rev/AndroidManifest.out.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main_wave.xml" tooltip="SAS_rev/res/layout/main_wave.xml">
+<persistable path="/SAS_rev/res/layout/main_wave.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="SAS_rev/AndroidManifest.xml">
+<persistable path="/SAS_rev/AndroidManifest.xml"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Activity.class" tooltip="android.app.Activity">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=IntialWildFire/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;android.app(Activity.class"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="KeyEvent.class" tooltip="android.view.KeyEvent">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=IntialWildFire/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;android.view(KeyEvent.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="audioGen.java" tooltip="SAS_rev/src/senior/project/audioGen.java">
+<persistable path="/SAS_rev/src/senior/project/audioGen.java"/>
 </file>
 </mruList>
 </workbench>
