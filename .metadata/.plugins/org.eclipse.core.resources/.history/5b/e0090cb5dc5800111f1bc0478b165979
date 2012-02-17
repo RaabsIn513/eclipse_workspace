@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView  
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+        android:text="Enter the phone number of recipient"
+        />     
+    <EditText 
+        android:id="@+id/txtPhoneNo"  
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"        
+        />
+    <!-- Sensor ID, date, time, event data -->
+    
+	<CheckBox android:id="@+id/include_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/include_date_cb" />
+	
+	<CheckBox android:id="@+id/include_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/include_time_cb" />
+    
+    <TextView  
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"         
+        android:text="Message"
+        />     
+    <EditText 
+        android:id="@+id/txtMessage"  
+        android:layout_width="fill_parent" 
+        android:layout_height="150px"
+        android:gravity="top"         
+        />          
+    <Button 
+        android:id="@+id/btnSendSMS"  
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"
+        android:text="Send SMS"
+        />    
+
+</LinearLayout>

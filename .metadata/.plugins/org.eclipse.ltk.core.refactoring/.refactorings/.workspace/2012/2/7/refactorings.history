@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;of SAS_revA&apos;" deleteContents="false" description="Delete resource &apos;of SAS_revA&apos;" element1="/of SAS_revA" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1329412166649"/>
+</session>

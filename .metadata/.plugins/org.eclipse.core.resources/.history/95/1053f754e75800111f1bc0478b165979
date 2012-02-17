@@ -1,0 +1,56 @@
+package senior.project;
+
+import java.util.LinkedList;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
+
+public class SMS_Settings extends Activity {
+
+	LinkedList<String> PhoneNos = new LinkedList<String>();
+	
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_sms_settings);   
+        
+        // Form objects
+        Button addToList     = (Button) findViewById(R.id.btnAddToList);
+        final EditText phoneNumber = (EditText) findViewById(R.id.txtBoxNumber);
+        final ListView Numbers     = (ListView) findViewById(R.id.listNumbers);
+        
+        PhoneNos.add("fuckStick");
+        PhoneNos.add("duckFace");
+        
+		ArrayAdapter<Object> ad = new ArrayAdapter<Object>(this, 
+				android.R.layout.simple_expandable_list_item_1, PhoneNos.toArray());
+        Numbers.setAdapter(ad);
+		
+		
+        // Listeners 
+        addToList.setOnClickListener(new OnClickListener(){
+        	public void onClick(View v) {
+        		if( phoneNumber.getText() != null )
+        		{
+    				
+        		}
+        	}
+        });
+       
+    }
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+    			item.getItemId();
+
+                
+        return super.onContextItemSelected(item);
+    }
+}

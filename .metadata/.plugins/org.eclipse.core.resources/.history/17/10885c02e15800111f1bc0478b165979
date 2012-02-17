@@ -1,0 +1,31 @@
+package senior.project;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class SMS_Settings extends Activity {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_sms_settings);   
+        
+        // Form objects
+        Button addToList     = (Button) findViewById(R.id.btnAddToList);
+        EditText phoneNumber = (EditText) findViewById(R.id.txtBoxNumber);
+        EditText Numbers     = (EditText) findViewById(R.id.txtBoxNumbers);
+        
+        
+        // Listeners 
+        addToList.setOnClickListener(new OnClickListener(){
+        	public void onClick(View v) {
+        		
+        	}
+        });
+    
+    }
+}

@@ -1,0 +1,12 @@
+package senior.project;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class SMS_Settings extends Activity {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+    	
+    }
+}
