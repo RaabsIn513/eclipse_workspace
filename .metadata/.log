@@ -2036,3 +2036,22 @@ org.eclipse.jdi.TimeoutException: Timeout occurred while waiting for packet 1602
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:141)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:82)
 	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
+!SESSION 2012-02-23 13:07:20.232 -----------------------------------------------
+eclipse.buildId=M20110210-1200
+java.version=1.6.0_29
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-02-23 14:21:44.794
+!MESSAGE AndroidManifest: Ignoring unknown 'Te' XML element
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-02-23 14:21:45.166
+!MESSAGE AndroidManifest: Ignoring unknown 'Text' XML element
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-02-23 14:21:45.952
+!MESSAGE AndroidManifest: Ignoring unknown 'TextVi' XML element
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-02-23 14:24:12.061
+!MESSAGE main_plot.xml: Paint.setShadowLayer is not supported.

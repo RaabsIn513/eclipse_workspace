@@ -10,7 +10,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.EditText;
 
 import com.androidplot.xy.BarFormatter;
 import com.androidplot.xy.BarRenderer;
@@ -156,7 +155,7 @@ public class Plot_Activity extends Activity {
 			double avg = SumHigh / AMP_HISTORY_SIZE;
 			graphLine(0, avg, 64, avg, maxSeries);
 			graphLine(0, Max, 64, Max, minSeries);
-
+			
 			audioHistSeries.setModel(audioHist, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY);
 			dynamicPlot.setRangeBoundaries(-30000, 30000, BoundaryMode.FIXED);
 			try {
@@ -269,6 +268,7 @@ public class Plot_Activity extends Activity {
     public static String dispForm = "WAVE"; // do wave plot by default if no bunlde is passed in
 	public static audioGen audioData;
 	public static Thread audioThread;
+	public static EditText avgText;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

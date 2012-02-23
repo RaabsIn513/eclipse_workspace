@@ -156,7 +156,7 @@ public class Plot_Activity extends Activity {
 			double avg = SumHigh / AMP_HISTORY_SIZE;
 			graphLine(0, avg, 64, avg, maxSeries);
 			graphLine(0, Max, 64, Max, minSeries);
-
+			avgText.setText(String.valueOf(avg));
 			audioHistSeries.setModel(audioHist, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY);
 			dynamicPlot.setRangeBoundaries(-30000, 30000, BoundaryMode.FIXED);
 			try {
@@ -269,11 +269,14 @@ public class Plot_Activity extends Activity {
     public static String dispForm = "WAVE"; // do wave plot by default if no bunlde is passed in
 	public static audioGen audioData;
 	public static Thread audioThread;
+	public static EditText avgText;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_plot);
+        
+        EditText avgText = (EditText) findViewById( R.id.txtBoxPlotStat );
         
         // Determine if we shall display the FFT or the wave form plots..
         Bundle passedIn = this.getIntent().getExtras();
