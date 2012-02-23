@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button 
+        android:id="@+id/numUp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="+">
+    </Button>
+
+    <TextView
+        android:id="+iid/num"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        
+    </TextView>
+        
+    <Button 
+        android:id="@+id/numUp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="-">
+    </Button>
+        
+</LinearLayout>

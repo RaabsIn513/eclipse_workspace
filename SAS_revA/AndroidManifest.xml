@@ -11,26 +11,36 @@
         android:label="@string/app_name" >
         <activity
             android:label="@string/app_name"
-            android:name=".SAS_revActivity" >
+            android:name=".SAS_revA_Activity" >
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity 
-            android:name=".PlotActivity"
+            android:name=".Plot_Activity"
             android:label="@string/plotAct_text">
 		</activity>
 		<activity
-		    android:name=".Test_SMS"
+		    android:name=".Test_SMS_Activity"
 		    android:label="@string/testSMSAct_text">
 		</activity>
 		<activity
-		    android:name=".SMS_Settings"
+		    android:name=".SMS_Settings_Activity"
 		    android:label="@string/testSMSAct_text">
 		</activity>
-		    
+		<activity
+		    android:name=".Contact_Activity"
+		    android:label="@string/contactAct_text">
+		</activity>
+		<activity
+		    android:name=".Settings_Activity"
+		    android:label="@string/settingsAct_text">
+		</activity>
+		<activity
+		    android:name=".Integer_Chooser_Activity"
+		    android:label="@string/settingsAct_text">
+		</activity>
     </application>
     
     <uses-permission android:name="android.permission.SEND_SMS"/>

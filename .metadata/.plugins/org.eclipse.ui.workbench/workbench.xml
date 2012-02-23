@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="34" version="2.0">
+<workbench progressCount="40" version="2.0">
 <workbenchAdvisor/>
 <window height="728" maximized="true" width="1024" x="-8" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -46,13 +46,13 @@
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Notepadv3.java" partName="Notepadv3.java" path="E:/Android Training/NotepadCodeLab/Notepadv3Solution/src/com/android/demo/notepad3/Notepadv3.java" title="Notepadv3.java" tooltip="Notepadv3_solutioni/src/com/android/demo/notepad3/Notepadv3.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Notepadv3_solutioni/src/com/android/demo/notepad3/Notepadv3.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3463" selectionTopPixel="614"/>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Settings_Activity.java" partName="Settings_Activity.java" path="E:/eclipse_workspace/SAS_revA/src/senior/project/Settings_Activity.java" title="Settings_Activity.java" tooltip="SAS_revA/src/senior/project/Settings_Activity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SAS_revA/src/senior/project/Settings_Activity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2242" selectionTopPixel="646"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SMS_Settings.java" partName="SMS_Settings.java" path="E:/eclipse_workspace/SAS_revA/src/senior/project/SMS_Settings.java" title="SMS_Settings.java" tooltip="SAS_revA/src/senior/project/SMS_Settings.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SAS_revA/src/senior/project/SMS_Settings.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1229" selectionTopPixel="393"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Integer_Chooser_Activity.java" partName="Integer_Chooser_Activity.java" path="E:/eclipse_workspace/SAS_revA/src/senior/project/Integer_Chooser_Activity.java" title="Integer_Chooser_Activity.java" tooltip="SAS_revA/src/senior/project/Integer_Chooser_Activity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SAS_revA/src/senior/project/Integer_Chooser_Activity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="875" selectionTopPixel="322"/>
 </editor>
 </editors>
 <views>
@@ -99,8 +99,7 @@
 <view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" partName="Data Source Explorer"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings"/>
+<expanded>&#x0A;<category IMemento.internal.id="Warnings"/>
 <category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
@@ -543,131 +542,156 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/SAS_revA/res/layout/main_test_sms.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revA/src/senior/project/SMS_Settings.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/SAS_revA/res/layout/main_sms_settings.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revA/src/senior/project/SAS_revActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Notepadv3_solutioni/src/com/android/demo/notepad3/Notepadv3.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revA/src/senior/project/Test_SMS.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Notepadv3_solutioni/src/com/android/demo/notepad3/Notepadv3.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/Notepadv3_solutioni/res/layout/notes_row.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/Notepadv3_solutioni/res/layout/notes_list.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.resources.ResourcesEditor" path="/Notepadv3_solutioni/res/values/strings.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revA/src/senior/project/SMS_Settings.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revA/src/senior/project/Settings_Activity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revA/src/senior/project/Integer_Chooser_Activity.java"/>
+<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=SAS_revA/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;android.view(View.class"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/SAS_revA/res/layout/integer_chooser.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/SAS_revA/AndroidManifest.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revA/src/senior/project/Integer_Chooser_Activity.java"/>
 </editors>
-<item historyLabel="main_sms_settings.xml" index="2"/>
-<item historyLabel="main_test_sms.xml" index="0"/>
-<item historyLabel="main_sms_settings.xml" index="2"/>
-<item historyLabel="main_test_sms.xml" index="0"/>
-<item historyLabel="main_sms_settings.xml" index="2"/>
-<item historyLabel="SAS_revActivity.java" index="3">
-<position info="not_deleted" x="2298" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1413" y="0"/>
 </item>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="709" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1472" y="0"/>
 </item>
-<item historyLabel="SAS_revActivity.java" index="3">
-<position info="not_deleted" x="581" y="52"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1413" y="0"/>
 </item>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="1394" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1472" y="0"/>
 </item>
-<item historyLabel="SAS_revActivity.java" index="3">
-<position info="not_deleted" x="1000" y="171"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1413" y="0"/>
 </item>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="1394" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1472" y="0"/>
 </item>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="791" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1413" y="0"/>
 </item>
-<item historyLabel="main_sms_settings.xml" index="2"/>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="791" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1472" y="0"/>
 </item>
-<item historyLabel="main_sms_settings.xml" index="2"/>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="870" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1413" y="0"/>
 </item>
-<item historyLabel="main_sms_settings.xml" index="2"/>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="870" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1599" y="0"/>
 </item>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="872" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1917" y="0"/>
 </item>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="1299" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="2012" y="0"/>
 </item>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="1369" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="2034" y="0"/>
 </item>
-<item historyLabel="SMS_Settings.java" index="1">
-<position/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="2176" y="0"/>
 </item>
-<item historyLabel="main_sms_settings.xml" index="2"/>
-<item historyLabel="SMS_Settings.java" index="1">
-<position/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="2224" y="0"/>
 </item>
-<item historyLabel="main_sms_settings.xml" index="2"/>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="1356" y="0"/>
+<item historyLabel="View.class" index="2">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main_sms_settings.xml" index="2"/>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="1356" y="0"/>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="1806" y="0"/>
 </item>
-<item historyLabel="SMS_Settings.java" index="1">
-<position/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1997" y="0"/>
 </item>
-<item historyLabel="main_sms_settings.xml" index="2"/>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="870" y="0"/>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="1123" y="0"/>
 </item>
-<item historyLabel="main_sms_settings.xml" index="2"/>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="870" y="0"/>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="1601" y="0"/>
 </item>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="953" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="944" y="0"/>
 </item>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="1129" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1333" y="0"/>
 </item>
-<item historyLabel="SMS_Settings.java" index="1">
-<position info="not_deleted" x="1352" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1472" y="0"/>
 </item>
-<item historyLabel="Notepadv3.java" index="4">
-<position info="not_deleted" x="1389" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1917" y="0"/>
 </item>
-<item historyLabel="Test_SMS.java" index="5">
-<position info="not_deleted" x="678" y="95"/>
+<item historyLabel="View.class" index="2">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Notepadv3.java" index="6">
-<position info="not_deleted" x="1346" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1917" y="0"/>
 </item>
-<item historyLabel="notes_row.xml" index="7"/>
-<item historyLabel="Notepadv3.java" index="6">
-<position info="not_deleted" x="2651" y="4"/>
+<item historyLabel="integer_chooser.xml" index="3"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1917" y="0"/>
 </item>
-<item historyLabel="notes_list.xml" index="8"/>
-<item historyLabel="strings.xml" index="9"/>
-<item historyLabel="notes_list.xml" index="8"/>
-<item historyLabel="Notepadv3.java" index="6">
-<position info="not_deleted" x="3068" y="395"/>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="1902" y="0"/>
 </item>
-<item historyLabel="SMS_Settings.java" index="10">
-<position/>
+<item historyLabel="integer_chooser.xml" index="3"/>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="1902" y="0"/>
 </item>
-<item historyLabel="notes_list.xml" index="8"/>
-<item historyLabel="SMS_Settings.java" index="10">
-<position/>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="2330" y="0"/>
 </item>
-<item historyLabel="Notepadv3.java" index="6">
-<position info="not_deleted" x="3463" y="0"/>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="3132" y="0"/>
 </item>
-<item active="true" historyLabel="SMS_Settings.java" index="10">
-<position/>
+<item historyLabel="SAS_revA Manifest" index="4"/>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="6084" y="0"/>
+</item>
+<item historyLabel="Integer_Chooser_Activity.java" index="5">
+<position info="not_deleted" x="875" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="6084" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="2194" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="2173" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="2194" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="2196" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="2385" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="2332" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="2336" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="2385" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="2383" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="2659" y="0"/>
+</item>
+<item historyLabel="Integer_Chooser_Activity.java" index="5">
+<position info="not_deleted" x="875" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="2659" y="0"/>
+</item>
+<item active="true" historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="2663" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -686,50 +710,47 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SMS_Settings.java" tooltip="SAS_revA/src/senior/project/SMS_Settings.java">
-<persistable path="/SAS_revA/src/senior/project/SMS_Settings.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.resources.ResourcesEditor" name="strings.xml" tooltip="Notepadv3_solutioni/res/values/strings.xml">
-<persistable path="/Notepadv3_solutioni/res/values/strings.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="notes_list.xml" tooltip="Notepadv3_solutioni/res/layout/notes_list.xml">
-<persistable path="/Notepadv3_solutioni/res/layout/notes_list.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="notes_row.xml" tooltip="Notepadv3_solutioni/res/layout/notes_row.xml">
-<persistable path="/Notepadv3_solutioni/res/layout/notes_row.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Notepadv3.java" tooltip="Notepadv3_solutioni/src/com/android/demo/notepad3/Notepadv3.java">
-<persistable path="/Notepadv3_solutioni/src/com/android/demo/notepad3/Notepadv3.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main_test_sms.xml" tooltip="SAS_revA/res/layout/main_test_sms.xml">
-<persistable path="/SAS_revA/res/layout/main_test_sms.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SAS_revActivity.java" tooltip="SAS_revA/src/senior/project/SAS_revActivity.java">
-<persistable path="/SAS_revA/src/senior/project/SAS_revActivity.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="SAS_revA/AndroidManifest.xml">
 <persistable path="/SAS_revA/AndroidManifest.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="integer_chooser.xml" tooltip="SAS_revA/res/layout/integer_chooser.xml">
+<persistable path="/SAS_revA/res/layout/integer_chooser.xml"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="AdapterView.class" tooltip="android.widget.AdapterView">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=SAS_revA/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;android.widget(AdapterView.class"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="InvocationTargetException.class" tooltip="java.lang.reflect.InvocationTargetException">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=SAS_revA/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;java.lang.reflect(InvocationTargetException.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SMS_Settings_Activity.java" tooltip="SAS_revA/src/senior/project/SMS_Settings_Activity.java">
+<persistable path="/SAS_revA/src/senior/project/SMS_Settings_Activity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Contact_Activity.java" tooltip="SAS_revA/src/senior/project/Contact_Activity.java">
+<persistable path="/SAS_revA/src/senior/project/Contact_Activity.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Instrumentation.class" tooltip="android.app.Instrumentation">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=SAS_revA/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;android.app(Instrumentation.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Integer_Chooser_Activity.java" tooltip="SAS_revA/src/senior/project/Integer_Chooser_Activity.java">
+<persistable path="/SAS_revA/src/senior/project/Integer_Chooser_Activity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="contact_menu.xml" tooltip="SAS_revA/res/layout/contact_menu.xml">
+<persistable path="/SAS_revA/res/layout/contact_menu.xml"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="ArrayAdapter.class" tooltip="android.widget.ArrayAdapter">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=SAS_revA/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;android.widget(ArrayAdapter.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Plot_Activity.java" tooltip="SAS_revA/src/senior/project/Plot_Activity.java">
+<persistable path="/SAS_revA/src/senior/project/Plot_Activity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="audioGen.java" tooltip="SAS_revA/src/senior/project/audioGen.java">
+<persistable path="/SAS_revA/src/senior/project/audioGen.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main_sms_settings.xml" tooltip="SAS_revA/res/layout/main_sms_settings.xml">
 <persistable path="/SAS_revA/res/layout/main_sms_settings.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SMS_Settings.java" tooltip="SAS_revA/src/SMS_Settings.java">
-<persistable path="/SAS_revA/src/SMS_Settings.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="main_test_sms.out.xml" tooltip="SAS_revA/res/layout/main_test_sms.out.xml">
-<persistable path="/SAS_revA/res/layout/main_test_sms.out.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.resources.ResourcesEditor" name="strings.xml" tooltip="SAS_revA/res/values/strings.xml">
-<persistable path="/SAS_revA/res/values/strings.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main.xml" tooltip="SAS_revA/res/layout/main.xml">
-<persistable path="/SAS_revA/res/layout/main.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main_plot.xml" tooltip="SAS_revA/res/layout/main_plot.xml">
-<persistable path="/SAS_revA/res/layout/main_plot.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Test_SMS.java" tooltip="SAS_revA/src/senior/project/Test_SMS.java">
-<persistable path="/SAS_revA/src/senior/project/Test_SMS.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="main_settings.xml" tooltip="SAS_revA/res/layout/main_settings.xml">
+<persistable path="/SAS_revA/res/layout/main_settings.xml"/>
 </file>
 </mruList>
 </workbench>

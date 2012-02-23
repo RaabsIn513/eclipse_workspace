@@ -10,10 +10,10 @@
         android:text="@string/hello" />
     
     <Button
-        android:id="@+id/dog"
+        android:id="@+id/btnSettings"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Yes, Hello?" />
+        android:text="@string/Sets_btText" />
     
     <Button
         android:id="@+id/wave_plot"
@@ -27,12 +27,6 @@
         android:layout_height="wrap_content"
         android:text="@string/viewFFT_btText" />
     
-    <Button
-        android:id="@+id/setThresh"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/setThresh_btText" />
-    
 	<Button
         android:id="@+id/setSMS"
         android:layout_width="fill_parent"
@@ -45,5 +39,4 @@
         android:layout_height="wrap_content"
         android:text="@string/sendSMS_btText" />
        
-
 </LinearLayout>

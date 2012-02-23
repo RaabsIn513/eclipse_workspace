@@ -1,0 +1,104 @@
+package senior.project;
+
+import java.util.Map;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class SAS_revA_Activity extends Activity {
+    
+	private static String SAS_Settings = "SAS_SettingsFile";
+	private static SharedPreferences SettingsFile;
+	
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        
+        // Button instances
+        Button deSetBt     = (Button) findViewById(R.id.btnDefaultSettings);
+        Button waveBt 	   = (Button) findViewById(R.id.wave_plot);
+        Button FFTBt  	   = (Button) findViewById(R.id.FFT_plot);
+        Button setThreshBt = (Button) findViewById(R.id.setThresh);
+        Button setSMSCont  = (Button) findViewById(R.id.setSMS);
+        Button sendSMS     = (Button) findViewById(R.id.sendTestSMS);
+        
+        // Listeners
+        deSetBt.setOnClickListener(new OnClickListener(){
+        	public void onClick(View v) {
+        		//alertBox("Yes hello?", "This is dog");
+        		SettingsFile = getSharedPreferences(SAS_Settings, 0);
+        		@SuppressWarnings("unchecked")
+				Map<String,String> settingTable = (Map<String, String>) SettingsFile.getAll();
+        		
+        		settingTable.get("Avg_Hist_Length");
+        		settingTable.put("Avg_Hist_Length", 32);
+        		
+        		Toast.makeText(v.getContext(), "Using default settings", 1000);
+        	}
+        });
+        waveBt.setOnClickListener(new OnClickListener(){
+        	public void onClick(View v)
+        	{
+        		Intent intent = new Intent(v.getContext(), Plot_Activity.class);
+        		// want the graph to do the wave
+        		intent.putExtra("WaveOrFFT", "WAVE");  
+        		startActivity(intent);
+        	}
+        });
+        FFTBt.setOnClickListener(new OnClickListener(){
+        	public void onClick(View v )
+        	{
+        		Intent intent = new Intent(v.getContext(), Plot_Activity.class);
+        		// want the graph to do FFT
+        		intent.putExtra("WaveOrFFT", "FFT");	
+        		startActivity(intent);        		
+        	}
+        });
+        setThreshBt.setOnClickListener(new OnClickListener(){
+        	public void onClick(View v)
+        	{
+        		alertBox("TODO!", "This component still needs to be implemented");
+        	}
+        });
+        setSMSCont.setOnClickListener(new OnClickListener(){
+        	public void onClick(View v)
+        	{
+        		//alertBox("TODO!", "This component still needs to be implemented");
+        		Intent intent = new Intent(v.getContext(), SMS_Settings_Activity.class);
+        		startActivity(intent);
+        	}
+        });
+        sendSMS.setOnClickListener(new OnClickListener(){
+        	public void onClick(View v)
+        	{
+        		//alertBox("TODO!", "This component still needs to be implemented");
+        		Intent intent = new Intent(v.getContext(), Test_SMS_Activity.class);
+        		startActivity(intent);
+        	}
+        });
+        
+    }
+    
+    // Good alertBox function
+    protected void alertBox(String title, String myMessage)
+    {
+	    new AlertDialog.Builder(this)
+	       .setMessage(myMessage)
+	       .setTitle(title)
+	       .setCancelable(true)
+	       .setNeutralButton(android.R.string.cancel,
+	          new DialogInterface.OnClickListener() {
+	          public void onClick(DialogInterface dialog, int whichButton){}
+	          })
+	       .show();
+    }
+}

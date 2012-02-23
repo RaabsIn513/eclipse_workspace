@@ -1,0 +1,120 @@
+package senior.project;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class Integer_Chooser_Activity extends Activity{
+	
+	private static TextView dispVal;
+	private static String crementBy = null;
+	private static String nameReq = null;
+	private static int value = 0;
+	private static int Max = 9999;
+	private static int Min = -9999;
+	private static String byList = null;
+	private static int[] intList = null;
+	private static String[] strList = null;
+	private static int listIndex = 0;
+	private static String operation = null;
+	private static int crementVal = 1;
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.integer_chooser);
+	    
+	    // incoming values
+	    try{
+	    	nameReq	  = this.getIntent().getExtras().getString("NAME");
+		    crementBy = this.getIntent().getExtras().getString("CREMENT_BY");
+		    value     = this.getIntent().getExtras().getInt("ORIGINAL");
+		    Max       = this.getIntent().getExtras().getInt("MAX_VALUE");
+		    Min       = this.getIntent().getExtras().getInt("MIN_VALUE");
+		    byList	  = this.getIntent().getExtras().getString("INTLIST");
+	    
+		    if( crementBy != null )	// parse crementBy to a usable int and operation
+		    {
+		    	crementBy = crementBy.toLowerCase();
+		    	if( crementBy.contains("*") || crementBy.contains("x") )
+		    	{
+		    		crementBy = crementBy.replace("*", "x");
+		    		operation = "multiply";
+		    		String temp = crementBy.substring(crementBy.indexOf("x")+1);
+		    		try
+		    		{
+		    			crementVal = Integer.valueOf(temp);
+		    		}
+		    	}
+		    	else
+		    		operation = "addition";
+		    }
+		    if( byList != null )
+		    {
+		    	strList = byList.split(",");
+		    	intList = new int[strList.length];
+		    	for( int i = 0; i < strList.length; i++)
+		    	{
+		    		intList[i] = Integer.valueOf(strList[i].trim());
+		    	}
+		    }
+	    }
+	    catch(Exception ex)
+	    {}
+	    
+	    Button UP = (Button) findViewById(R.id.btn_numUp);
+	    Button DN = (Button) findViewById(R.id.btn_numDn);
+	    dispVal = (TextView) findViewById(R.id.intValue);
+	    dispVal.setText(String.valueOf(value));
+	    
+	    UP.setOnClickListener(new OnClickListener(){
+	    	public void onClick(View v)
+	    	{
+	    		if( byList != null && (listIndex >= 0) && (listIndex < strList.length -1 ) )
+	    		{
+	    			listIndex++;
+	    			value = intList[listIndex];
+	    		}
+	    		else
+	    		{
+	    		if( value < Max )
+	    			value = value + crementBy;
+	    		}
+	    		dispVal.setText(String.valueOf(value));
+	    	}
+	    });
+
+	    DN.setOnClickListener(new OnClickListener(){
+	    	public void onClick(View v)
+	    	{	
+	    		if( byList != null && (listIndex > 0) && (listIndex) <= (strList.length) )
+	    		{
+	    			listIndex--;
+	    			value = intList[listIndex];
+	    		}
+	    		else
+	    		{
+	    			if( value > Min )
+	    				value = value - crementBy;
+	    		}
+	    		dispVal.setText(String.valueOf(value));
+	    	}
+	    });
+	}
+
+    @Override
+    public void onBackPressed() {
+    	Intent retData = new Intent();
+		
+		retData.putExtra("VALUE", value);
+		retData.putExtra("NAME", nameReq);
+		
+		setResult( Activity.RESULT_OK, retData );	// set the result/data
+		finish();									// return to previous activity
+    return;
+    }
+}

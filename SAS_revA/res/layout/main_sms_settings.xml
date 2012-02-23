@@ -17,20 +17,7 @@
 	<TextView  
         android:layout_width="fill_parent" 
         android:layout_height="wrap_content" 
-        android:text="Enter recipient phone numbers" />     
-	
-	<EditText
-	    android:id="@+id/txtBoxNumber"
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:inputType="phone" >
-	</EditText>
-	
-	<Button 
-        android:id="@+id/btnAddToList"  
-        android:layout_width="fill_parent" 
-        android:layout_height="wrap_content"
-        android:text="Add" />   
+        android:text="Alert these contacts on an event trigger:" />         
 
 	<ListView
 	    android:id="@+id/listNumbers"

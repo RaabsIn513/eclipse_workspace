@@ -1,0 +1,50 @@
+package senior.project;
+
+import java.util.Map;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class ContactActivity extends Activity {
+
+	private static Map<String,String> aContact;
+	
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.contact_menu);    
+        
+        Button btnOKAY     = (Button) findViewById(R.id.btnOKAY);
+        final EditText etName    = (EditText) findViewById(R.id.txtBoxName);
+        final EditText etNumber  = (EditText) findViewById(R.id.txtBoxNumber);
+        
+        
+        btnOKAY.setOnClickListener(new OnClickListener(){
+        	public void onClick(View v )
+        	{
+        		if( etName.getText().length() > 0 && etNumber.getText().length() >= 7 )
+        		{
+        			String key = etName.getText().toString();
+        			String val = etNumber.getText().toString();
+        			aContact.put(key, val);
+        			
+        			this.getIntent().setDataAndType(aContact, Map);
+        		}
+        		else
+        		{
+        			Toast.makeText(v.getContext(), "Unable to accept contact, there must" +
+        					" be at least one letter in the name field and " +
+        					" 7 digits in the phone number field", 1500).show();
+        		}
+        	}
+        });
+        
+        
+    }
+
+}
