@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;senior.project.SAS_revA_Activity&apos; to &apos;SAS_revB_Activity&apos;&#x0D;&#x0A;- Original project: &apos;SAS_revB&apos;&#x0D;&#x0A;- Original element: &apos;senior.project.SAS_revA_Activity&apos;&#x0D;&#x0A;- Renamed element: &apos;senior.project.SAS_revB_Activity&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;SAS_revA_Activity&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;senior.project{SAS_revA_Activity.java[SAS_revA_Activity" matchStrategy="1" name="SAS_revB_Activity" qualified="false" references="true" similarDeclarations="false" stamp="1330612983595" textual="false" version="1.0"/>
+</session>
