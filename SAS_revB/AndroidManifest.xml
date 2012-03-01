@@ -45,6 +45,10 @@
 		    android:name=".Operational_Mode_Activity"
 		    android:label="@string/opModeAct_text">
 		</activity>
+		
+		<activity
+		    android:name=".Send_SMS_Activity">
+		</activity>
     </application>
     
     <uses-permission android:name="android.permission.SEND_SMS"/>

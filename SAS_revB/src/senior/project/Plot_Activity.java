@@ -101,18 +101,18 @@ public class Plot_Activity extends Activity {
         }
 		
 		/**
-		 * sectionalFFT takes an array with size greater than HISTORY_SIZE
+		 * sectionalFFT takes an array with size greater than SAMP_HISTORY_SIZE
 		 * and creates FFT frames to graph. The graph's domain is equal
-		 * to HISTORY_SIZE
+		 * to SAMP_HISTORY_SIZE
 		 * @param input
 		 */
 		private void sectionalFFT( double[] input )
 		{
 			AppLog.APP_TAG = "sectionalFFT";
-			// Split this data into pieces that are HISTORY_SIZE elements in size
-			int nFrames = input.length / HISTORY_SIZE;			// Number of frames we will create from a mic read
-			Number[] graphable = new Number[HISTORY_SIZE];
-			double[] section = new double[HISTORY_SIZE];
+			// Split this data into pieces that are SAMP_HISTORY_SIZE elements in size
+			int nFrames = input.length / SAMP_HISTORY_SIZE;			// Number of frames we will create from a mic read
+			Number[] graphable = new Number[SAMP_HISTORY_SIZE];
+			double[] section = new double[SAMP_HISTORY_SIZE];
 			
 			AppLog.logString("input.length: " + input.length +
 					" nFrames: " + nFrames);
@@ -121,7 +121,7 @@ public class Plot_Activity extends Activity {
 			for ( int j = 1; j < nFrames + 1; j++ )
 			{
 				// Get the section
-				for( int i = 0; i < HISTORY_SIZE; i++ )
+				for( int i = 0; i < SAMP_HISTORY_SIZE; i++ )
 					section[i] = input[i*j];				// get the fft magnitude of 64 value frame
 				graphable = fft_mag( section );
 				audioHist.clear();
@@ -144,7 +144,7 @@ public class Plot_Activity extends Activity {
 		
 		private void waveform( double[] input )
 		{
-			if( audioHist.size() >= HISTORY_SIZE)
+			if( audioHist.size() >= SAMP_HISTORY_SIZE)
 				audioHist.clear();
 		
 			double Max = max(input);
@@ -167,7 +167,7 @@ public class Plot_Activity extends Activity {
 				THRESH_CNT = 0;			// Reset the THRESH_CNT back to zero since we want consecutive samples	
 			
 			// load the series. 
-			for( int i = 0; i < HISTORY_SIZE; i++)
+			for( int i = 0; i < SAMP_HISTORY_SIZE; i++)
 				audioHist.addLast(input[i]);	
 			
 			graphLine(0, avg, 64, avg, maxSeries);
@@ -280,7 +280,7 @@ public class Plot_Activity extends Activity {
     private SimpleXYSeries minSeries       = new SimpleXYSeries("Current Max");
     private LinkedList<Double> ampHist     = new LinkedList<Double>();
     private LinkedList<Number> audioHist = new LinkedList<Number>();
-    private final int HISTORY_SIZE = 64;
+    private final int SAMP_HISTORY_SIZE = 64;
     public static int AMP_HIST_SIZE = 32;
 	private int THRESH_SAMPS;
 	private int THRESH_CNT;

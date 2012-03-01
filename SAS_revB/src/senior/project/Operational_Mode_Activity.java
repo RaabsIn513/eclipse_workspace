@@ -39,7 +39,7 @@ public class Operational_Mode_Activity extends Activity{
 			double Max = max(data);
 			//double Min = min(data);
 			SumHigh = manageHighSum( Max );
-			avg = SumHigh / AMP_HISTORY_SIZE;
+			avg = SumHigh / AMP_SAMP_HISTORY_SIZE;
 			
 			//THRESH_DIFF  - the difference between the avg and the current max
 			//THRESH_SAMPS - the number of samples in which ( currentMax - avg > THRESH_DIF ) 
@@ -49,6 +49,8 @@ public class Operational_Mode_Activity extends Activity{
 			if( (Max - avg ) > THRESH_DIFF )
 			{		
 				THRESH_CNT += 1;
+				avgDiff += (Max - avg);
+				avgDiff = avgDiff / THRESH_CNT;
 				if( THRESH_CNT >= THRESH_SAMPS )
 				{	
 					mTrigger = true;
@@ -56,6 +58,9 @@ public class Operational_Mode_Activity extends Activity{
 		        	AppLog.APP_TAG = "TRIGGERin";
 		        	AppLog.logString("TRIGGER EVENT");
 		        	// TODO: SEND ALERT TEXT!
+		        	String[] info = new String[1];
+		        	info[0] = "avg of (Max - avg) for the event was: " + String.valueOf(avgDiff);
+		        	Send_SMS_Activity.sendAlertSMS(info, getApplicationContext());
 				}
 			}
 			else
@@ -124,7 +129,7 @@ public class Operational_Mode_Activity extends Activity{
 		{
 			double result = SumHigh;
 			ampHist.addLast(ValIn);
-			if( ampHist.size() < AMP_HISTORY_SIZE )
+			if( ampHist.size() < AMP_SAMP_HISTORY_SIZE )
 				result += ampHist.getLast();
 			else
 			{
@@ -148,11 +153,12 @@ public class Operational_Mode_Activity extends Activity{
 	private LinkedList<Double> ampHist = new LinkedList<Double>();
 	private Double SumHigh = 0.0;
 	private Double avg = 0.0;
-	private int AMP_HISTORY_SIZE;
+	private int AMP_SAMP_HISTORY_SIZE;
 	private int THRESH_SAMPS;
 	private int THRESH_CNT;
+	private double avgDiff = 0;
 	private int THRESH_DIFF;
-	private final int HISTORY_SIZE = 64;
+	private final int SAMP_HISTORY_SIZE = 64;
 	private boolean trigger = false;
 	public static audioGen audioData;
 	public static Thread audioThread;
@@ -165,10 +171,11 @@ public class Operational_Mode_Activity extends Activity{
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.main_operational);
 	    
+	    Context con = getApplicationContext();
 	    // Get our settings
 	    try{
 		    SettingsFile = getSharedPreferences(SAS_Settings, 0);
-		    AMP_HISTORY_SIZE = Integer.valueOf(SettingsFile.getInt("AMP_HISTORY_SIZE", 64));
+		    AMP_SAMP_HISTORY_SIZE = Integer.valueOf(SettingsFile.getInt("AMP_SAMP_HISTORY_SIZE", 64));
 		    THRESH_DIFF = Integer.valueOf(SettingsFile.getInt("THRESH_DIFF", 20));
 		    THRESH_SAMPS = Integer.valueOf(SettingsFile.getInt("THRESH_SAMPS", 20));
 	    }

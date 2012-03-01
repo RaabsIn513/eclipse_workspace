@@ -2820,3 +2820,16 @@ Caused by: java.lang.NullPointerException
 	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
 	... 22 more
+!SESSION 2012-03-01 16:40:01.556 -----------------------------------------------
+eclipse.buildId=M20110210-1200
+java.version=1.6.0_29
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-03-01 17:48:36.775
+!MESSAGE AndroidManifest: Ignoring unknown 'ac' XML element
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-03-01 17:48:37.065
+!MESSAGE AndroidManifest: Ignoring unknown 'acti' XML element
