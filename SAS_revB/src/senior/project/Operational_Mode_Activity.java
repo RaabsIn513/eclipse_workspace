@@ -50,14 +50,15 @@ public class Operational_Mode_Activity extends Activity{
 			{		
 				THRESH_CNT += 1;
 				avgDiff += (Max - avg);
-				avgDiff = avgDiff / THRESH_CNT;
+				
 				if( THRESH_CNT >= THRESH_SAMPS )
 				{	
+					avgDiff = avgDiff / THRESH_CNT;
 					mTrigger = true;
 					THRESH_CNT = 0; 	// Reset the THRESH_CNT
 		        	AppLog.APP_TAG = "TRIGGERin";
-		        	AppLog.logString("TRIGGER EVENT");
-		        	// TODO: SEND ALERT TEXT!
+		        	AppLog.logString("AVG DIFF: " + avgDiff);
+		        	
 		        	String[] info = new String[1];
 		        	info[0] = "avg of (Max - avg) for the event was: " + String.valueOf(avgDiff);
 		        	Send_SMS_Activity.sendAlertSMS(info, getApplicationContext());

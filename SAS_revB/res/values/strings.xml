@@ -3,7 +3,7 @@
 
     <string name="hello">Hello World, SAS_revActivity!</string>
     
-    <string name="app_name">SAS_rev</string>
+    <string name="app_name">SAS_revB</string>
 	<string name="plotAct_text">Plot View</string>
     <string name="testSMSAct_text">Send Test Text Message</string>   
     <string name="contactAct_text">Add or Edit an alert contact</string>

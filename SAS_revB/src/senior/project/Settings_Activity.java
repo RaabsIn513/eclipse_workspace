@@ -90,10 +90,10 @@ public class Settings_Activity extends Activity{
 	    	    {
 	    	    	Intent intent = new Intent(view.getContext(), Integer_Chooser_Activity.class);
 	    	    	intent.putExtra("NAME", "THRESH_DIFF");
-	    	    	intent.putExtra("CREMENT_BY", "1");
+	    	    	intent.putExtra("CREMENT_BY", "2");
 	    	    	intent.putExtra("ORIGINAL",  currentVal);
-	    	    	intent.putExtra("MIN_VALUE", 8);
-	    	    	intent.putExtra("MAX_VALUE", 128);
+	    	    	intent.putExtra("MIN_VALUE", 20);
+	    	    	intent.putExtra("MAX_VALUE", 500);
 	    	    	
 	    	    	startActivityForResult(intent, position);	    	    	
 	    	    }

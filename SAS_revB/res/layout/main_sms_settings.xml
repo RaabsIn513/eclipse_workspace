@@ -4,12 +4,12 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-   <CheckBox android:id="@+id/include_date"
+   <CheckBox android:id="@+id/cbInclude_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/include_date_cb" />
 	
-	<CheckBox android:id="@+id/include_time"
+	<CheckBox android:id="@+id/cbInclude_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/include_time_cb" />
