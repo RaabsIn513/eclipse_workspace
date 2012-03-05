@@ -48,10 +48,7 @@ public class Settings_Activity extends Activity{
 	    		}
 	    		
 	    		
-	    		// Start integer chooser activity
-	    	    Toast.makeText(getApplicationContext(), ((TextView) view).getText(),
-	    	              Toast.LENGTH_SHORT).show();    
-	    	    
+	    		// Start integer chooser activity	    	    
 	    	    if( selected == "SAMPLE_RATE" )
 	    	    {
 	    	    	// SAMPLE_RATE will use a list of sample rate options
@@ -61,7 +58,8 @@ public class Settings_Activity extends Activity{
 	    	    	intent.putExtra("ORIGINAL",  currentVal);
 	    	    	intent.putExtra("MIN_VALUE", 8000);
 	    	    	intent.putExtra("MAX_VALUE", 44100);
-	    	    	
+	    	    	intent.putExtra("DESC_TEXT", "The sample rate in hertz");
+
 	    	    	startActivityForResult(intent, position);
 	    	    }
 	    	    if( selected == "SAMP_HISTORY_SIZE" )
@@ -72,7 +70,7 @@ public class Settings_Activity extends Activity{
 	    	    	intent.putExtra("ORIGINAL",  currentVal);
 	    	    	intent.putExtra("MIN_VALUE", 16);
 	    	    	intent.putExtra("MAX_VALUE", 128);
-	    	    	
+	    	    	intent.putExtra("DESC_TEXT",  "The storage size of one sample to be processed");
 	    	    	startActivityForResult(intent, position);
 	    	    }
 	    	    if( selected == "AMP_HIST_SIZE" )
@@ -83,6 +81,7 @@ public class Settings_Activity extends Activity{
 	    	    	intent.putExtra("ORIGINAL",  currentVal);
 	    	    	intent.putExtra("MIN_VALUE", 8);
 	    	    	intent.putExtra("MAX_VALUE", 128);
+	    	    	intent.putExtra("DESC_TEXT",  "The number of peak amplitude recordings from the SAMP_HISTORY_SIZE");
 	    	    	
 	    	    	startActivityForResult(intent, position);	    	    	
 	    	    }
@@ -94,7 +93,7 @@ public class Settings_Activity extends Activity{
 	    	    	intent.putExtra("ORIGINAL",  currentVal);
 	    	    	intent.putExtra("MIN_VALUE", 20);
 	    	    	intent.putExtra("MAX_VALUE", 500);
-	    	    	
+	    	    	intent.putExtra("DESC_TEXT", "The necessary difference between the average max amplitude and the current max amplitude to count towards an event.");
 	    	    	startActivityForResult(intent, position);	    	    	
 	    	    }
 	    	    if( selected == "THRESH_SAMPS" )
@@ -105,11 +104,12 @@ public class Settings_Activity extends Activity{
 	    	    	intent.putExtra("ORIGINAL",  currentVal);
 	    	    	intent.putExtra("MIN_VALUE", 8);
 	    	    	intent.putExtra("MAX_VALUE", 128);
-	    	    	
+	    	    	intent.putExtra("DESC_TEXT", "The number of consecutive occurances inwhich THRESH_DIFF occurs before creating an event trigger.");
 	    	    	startActivityForResult(intent, position);	    	    	
 	    	    }
 	    	}
 	    });
+
 	}
 	
 	public boolean refreshList()

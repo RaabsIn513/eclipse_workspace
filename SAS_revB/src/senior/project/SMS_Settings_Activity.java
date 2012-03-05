@@ -188,17 +188,15 @@ public class SMS_Settings_Activity extends Activity {
 			
 			String[] dispVals = new String[vals.length];
 			
-			for( int i = 0; i < dispVals.length; i++ )
-			{	// Don't write our boolean values into our contact list...
-				if( keys[i].intern() != "INCLUDE_DATE" && keys[i].intern() != "INCLUDE_TIME")
-					dispVals[i] = keys[i] + " - " + vals[i];			
-			}
+			
 			if( vals.length == 0)
 			{
 				dispVals = new String[1];
 				dispVals[0] = "No contacts have been added";
 			}
-						
+			else
+				dispVals = extractContacts(keys, vals);			
+			
 			ad = new ArrayAdapter<Object>(this, 
 					android.R.layout.simple_expandable_list_item_1, dispVals);
 	        Numbers.setAdapter(ad);
@@ -208,6 +206,21 @@ public class SMS_Settings_Activity extends Activity {
 			Toast.makeText(this, NP.getMessage(), 400).show();
 		}
         return true;
+    }
+    
+    private String[] extractContacts( String[] keys, String[] vals)
+    {
+    	LinkedList<String> temp = new LinkedList<String>();
+    	int j =0;
+    	for( int i = 0; i < keys.length; i++ )
+    	{
+    		if( keys[i].intern() != "INCLUDE_DATE" && keys[i].intern() != "INCLUDE_TIME" )
+    			temp.add(keys[i] + ": " + vals[i]);
+    	}
+    	String[] result = new String[temp.toArray().length];
+    	for( int i = 0; i < result.length; i++ )
+    		result[i] = temp.get(i);
+    	return result;
     }
     
     public boolean editContact(String Name, String Number)

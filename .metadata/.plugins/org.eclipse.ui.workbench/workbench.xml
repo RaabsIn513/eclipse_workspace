@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="37" version="2.0">
 <workbenchAdvisor/>
-<window height="728" maximized="true" width="1024" x="-8" y="0">
+<window height="728" maximized="true" minimized="true" width="1024" x="-8" y="0">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="180"/>
 </perspectiveBar>
 <coolbarLayout locked="0">
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="122" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="207" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="adt.actionSet.avdManager" itemType="typeToolBarContribution" x="61" y="22"/>
 <coolItem id="adt.actionSet.wizards" itemType="typeToolBarContribution" x="84" y="22"/>
@@ -20,7 +20,7 @@
 <coolItem id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" itemType="typeToolBarContribution" x="38" y="22"/>
 <coolItem id="org.eclipse.wst.ws.explorer.explorer" itemType="typeToolBarContribution" x="38" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="61" y="22"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
@@ -42,17 +42,32 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SMS_Settings_Activity.java" partName="SMS_Settings_Activity.java" path="E:/eclipse_workspace/SAS_revB/src/senior/project/SMS_Settings_Activity.java" title="SMS_Settings_Activity.java" tooltip="SAS_revB/src/senior/project/SMS_Settings_Activity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SAS_revB/src/senior/project/SMS_Settings_Activity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5816" selectionTopPixel="1938"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Send_SMS_Activity.java" partName="Send_SMS_Activity.java" path="E:/eclipse_workspace/SAS_revB/src/senior/project/Send_SMS_Activity.java" title="Send_SMS_Activity.java" tooltip="SAS_revB/src/senior/project/Send_SMS_Activity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SAS_revB/src/senior/project/Send_SMS_Activity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1121" selectionTopPixel="204"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SAS_revB_Activity.java" partName="SAS_revB_Activity.java" path="E:/eclipse_workspace/SAS_revB/src/senior/project/SAS_revB_Activity.java" title="SAS_revB_Activity.java" tooltip="SAS_revB/src/senior/project/SAS_revB_Activity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SAS_revB/src/senior/project/SAS_revB_Activity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1265" selectionTopPixel="153"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Operational_Mode_Activity.java" partName="Operational_Mode_Activity.java" path="E:/eclipse_workspace/SAS_revB/src/senior/project/Operational_Mode_Activity.java" title="Operational_Mode_Activity.java" tooltip="SAS_revB/src/senior/project/Operational_Mode_Activity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SAS_revB/src/senior/project/Operational_Mode_Activity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1782" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Settings_Activity.java" partName="Settings_Activity.java" path="E:/eclipse_workspace/SAS_revB/src/senior/project/Settings_Activity.java" title="Settings_Activity.java" tooltip="SAS_revB/src/senior/project/Settings_Activity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SAS_revB/src/senior/project/Settings_Activity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4714" selectionTopPixel="1309"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Integer_Chooser_Activity.java" partName="Integer_Chooser_Activity.java" path="E:/eclipse_workspace/SAS_revB/src/senior/project/Integer_Chooser_Activity.java" title="Integer_Chooser_Activity.java" tooltip="SAS_revB/src/senior/project/Integer_Chooser_Activity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SAS_revB/src/senior/project/Integer_Chooser_Activity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2686" selectionTopPixel="1224"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FFT.java" partName="FFT.java" path="E:/eclipse_workspace/SAS_revB/src/senior/project/FFT.java" title="FFT.java" tooltip="SAS_revB/src/senior/project/FFT.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SAS_revB/src/senior/project/FFT.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="943" selectionTopPixel="357"/>
 </editor>
 </editors>
 <views>
@@ -99,9 +114,7 @@
 <view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" partName="Data Source Explorer"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Errors"/>
-<category IMemento.internal.id="Warnings"/>
+<expanded>&#x0A;<category IMemento.internal.id="Warnings (21 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -387,7 +400,7 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.21402214" ratioLeft="290" ratioRight="1065" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.67419356" ratioLeft="418" ratioRight="202" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
@@ -485,32 +498,23 @@
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="com.android.ide.eclipse.ddms.views.LogCatView"/>
 <fastViewBars/>
-<layout>
-<mainWindow>
-<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="Type Hierarchy"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.62741935" ratioLeft="389" ratioRight="231" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.62741935" ratioLeft="389" ratioRight="231" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
@@ -518,38 +522,28 @@
 <page content="org.eclipse.jdt.debug.ui.DisplayView" label="LabelNotFound"/>
 <page content="org.eclipse.search.SearchResultView" label="LabelNotFound"/>
 <page content="org.eclipse.wst.xsl.jaxp.debug.ui.view1" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@16caf23" ratio="0.44723248" ratioLeft="606" ratioRight="749" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView">
-<folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">
-<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LogCat"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@16caf23" ratio="0.44723248" ratioLeft="606" ratioRight="749" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView">&#x0A;<folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">&#x0A;<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LogCat"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.43583536" ratioLeft="180" ratioRight="233" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
-<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="679" ratioRight="679" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.debug.ui.ExpressionView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="679" ratioRight="679" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.ExpressionView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 </presentation>
@@ -562,158 +556,155 @@
 <workingSets/>
 <navigationHistory>
 <editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revB/src/senior/project/Settings_Activity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revB/src/senior/project/Integer_Chooser_Activity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" path="/SAS_revB/res/layout/integer_chooser.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/SAS_revB/res/layout/integer_chooser.out.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revB/src/senior/project/Send_SMS_Activity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revB/src/senior/project/Operational_Mode_Activity.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revB/src/senior/project/SMS_Settings_Activity.java"/>
-<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=SAS_revB/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;android.widget(ArrayAdapter.class"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revB/src/senior/project/SMS_Settings_Activity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revB/src/senior/project/Settings_Activity.java"/>
+<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=SAS_revB/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;android.app(Instrumentation.class"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revB/src/senior/project/Integer_Chooser_Activity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revB/src/senior/project/Operational_Mode_Activity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revB/src/senior/project/Settings_Activity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revB/src/senior/project/Integer_Chooser_Activity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SAS_revB/src/senior/project/FFT.java"/>
 </editors>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="4749" y="0"/>
+<item historyLabel="integer_chooser.xml" index="2"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="4808" y="0"/>
+<item historyLabel="integer_chooser.xml" index="2"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1783" y="0"/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="4859" y="0"/>
+<item historyLabel="integer_chooser.xml" index="2"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1783" y="0"/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="4918" y="0"/>
+<item historyLabel="integer_chooser.xml" index="2"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="1783" y="0"/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="4969" y="0"/>
+<item historyLabel="integer_chooser.xml" index="2"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="2307" y="0"/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5044" y="0"/>
+<item historyLabel="integer_chooser.xml" index="2"/>
+<item historyLabel="integer_chooser.out.xml" index="3"/>
+<item historyLabel="integer_chooser.xml" index="2"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="2307" y="0"/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5112" y="0"/>
+<item historyLabel="Settings_Activity.java" index="0">
+<position info="not_deleted" x="2173" y="0"/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5180" y="0"/>
+<item historyLabel="Integer_Chooser_Activity.java" index="1">
+<position info="not_deleted" x="2307" y="0"/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5210" y="0"/>
+<item historyLabel="Send_SMS_Activity.java" index="4">
+<position info="not_deleted" x="664" y="0"/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5311" y="0"/>
+<item historyLabel="Operational_Mode_Activity.java" index="5">
+<position info="not_deleted" x="1849" y="0"/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="1501" y="0"/>
+<item historyLabel="Send_SMS_Activity.java" index="4">
+<position info="not_deleted" x="664" y="0"/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="1568" y="0"/>
+<item historyLabel="Send_SMS_Activity.java" index="4">
+<position info="not_deleted" x="3428" y="0"/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="1922" y="0"/>
+<item historyLabel="Send_SMS_Activity.java" index="4">
+<position info="not_deleted" x="3920" y="0"/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="2266" y="0"/>
+<item historyLabel="Send_SMS_Activity.java" index="4">
+<position/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="4749" y="0"/>
+<item historyLabel="Send_SMS_Activity.java" index="4">
+<position/>
 </item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="4808" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="4918" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="4969" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5044" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5112" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5180" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5210" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5311" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="7263" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="7348" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="1823" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="1855" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="4749" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="4808" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="4918" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="4969" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5044" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5112" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5180" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5210" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5311" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="4749" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="1447" y="19"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5366" y="19"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="6020" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5983" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="6020" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5825" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5937" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="5825" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="6076" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="6203" y="0"/>
-</item>
-<item historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="6244" y="0"/>
-</item>
-<item historyLabel="ArrayAdapter.class" index="1">
+<item historyLabel="SMS_Settings_Activity.java" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="SMS_Settings_Activity.java" index="0">
-<position info="not_deleted" x="6244" y="0"/>
+<item historyLabel="SMS_Settings_Activity.java" index="6">
+<position info="not_deleted" x="5980" y="0"/>
+</item>
+<item historyLabel="SMS_Settings_Activity.java" index="6">
+<position info="not_deleted" x="6290" y="505"/>
+</item>
+<item historyLabel="Operational_Mode_Activity.java" index="5">
+<position info="not_deleted" x="1849" y="0"/>
+</item>
+<item historyLabel="Send_SMS_Activity.java" index="4">
+<position info="not_deleted" x="1471" y="0"/>
+</item>
+<item historyLabel="Send_SMS_Activity.java" index="4">
+<position info="not_deleted" x="4471" y="19"/>
+</item>
+<item historyLabel="Send_SMS_Activity.java" index="4">
+<position info="not_deleted" x="4806" y="0"/>
+</item>
+<item historyLabel="Send_SMS_Activity.java" index="4">
+<position/>
+</item>
+<item historyLabel="Send_SMS_Activity.java" index="4">
+<position/>
+</item>
+<item historyLabel="SMS_Settings_Activity.java" index="7">
+<position info="not_deleted" x="6290" y="505"/>
+</item>
+<item historyLabel="Send_SMS_Activity.java" index="4">
+<position info="not_deleted" x="1121" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="8">
+<position info="not_deleted" x="768" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="8">
+<position info="not_deleted" x="820" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="8">
+<position info="not_deleted" x="888" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="8">
+<position info="not_deleted" x="958" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="8">
+<position info="not_deleted" x="4714" y="0"/>
+</item>
+<item historyLabel="Instrumentation.class" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="8">
+<position info="not_deleted" x="4714" y="0"/>
+</item>
+<item historyLabel="Integer_Chooser_Activity.java" index="10">
+<position info="not_deleted" x="2238" y="0"/>
+</item>
+<item historyLabel="Operational_Mode_Activity.java" index="11">
+<position info="not_deleted" x="1849" y="0"/>
+</item>
+<item historyLabel="Settings_Activity.java" index="12">
+<position info="not_deleted" x="4714" y="0"/>
+</item>
+<item historyLabel="Integer_Chooser_Activity.java" index="13">
+<position info="not_deleted" x="2238" y="0"/>
+</item>
+<item historyLabel="FFT.java" index="14">
+<position info="not_deleted" x="943" y="0"/>
+</item>
+<item historyLabel="Integer_Chooser_Activity.java" index="13">
+<position info="not_deleted" x="2238" y="0"/>
+</item>
+<item historyLabel="FFT.java" index="14">
+<position info="not_deleted" x="943" y="0"/>
+</item>
+<item active="true" historyLabel="Integer_Chooser_Activity.java" index="13">
+<position info="not_deleted" x="2238" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -732,6 +723,36 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FFT.java" tooltip="SAS_revB/src/senior/project/FFT.java">
+<persistable path="/SAS_revB/src/senior/project/FFT.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Integer_Chooser_Activity.java" tooltip="SAS_revB/src/senior/project/Integer_Chooser_Activity.java">
+<persistable path="/SAS_revB/src/senior/project/Integer_Chooser_Activity.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Instrumentation.class" tooltip="android.app.Instrumentation">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=SAS_revB/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;android.app(Instrumentation.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Settings_Activity.java" tooltip="SAS_revB/src/senior/project/Settings_Activity.java">
+<persistable path="/SAS_revB/src/senior/project/Settings_Activity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SMS_Settings_Activity.java" tooltip="SAS_revB/src/senior/project/SMS_Settings_Activity.java">
+<persistable path="/SAS_revB/src/senior/project/SMS_Settings_Activity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="integer_chooser.out.xml" tooltip="SAS_revB/res/layout/integer_chooser.out.xml">
+<persistable path="/SAS_revB/res/layout/integer_chooser.out.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.layout.LayoutEditor" name="integer_chooser.xml" tooltip="SAS_revB/res/layout/integer_chooser.xml">
+<persistable path="/SAS_revB/res/layout/integer_chooser.xml"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Handler.class" tooltip="android.os.Handler">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=SAS_revB/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;android.os(Handler.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Operational_Mode_Activity.java" tooltip="SAS_revB/src/senior/project/Operational_Mode_Activity.java">
+<persistable path="/SAS_revB/src/senior/project/Operational_Mode_Activity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Send_SMS_Activity.java" tooltip="SAS_revB/src/senior/project/Send_SMS_Activity.java">
+<persistable path="/SAS_revB/src/senior/project/Send_SMS_Activity.java"/>
+</file>
 <file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="DexFile.class" tooltip="dalvik.system.DexFile">
 <persistable org.eclipse.jdt.ui.ClassFileIdentifier="=SAS_revB/D:\/eclipse-jee-helios-SR2-win32\/SDKs\/platforms\/android-7\/android.jar&lt;dalvik.system(DexFile.class"/>
 </file>
@@ -746,30 +767,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="R.java" tooltip="SAS_revB/gen/senior/project/R.java">
 <persistable path="/SAS_revB/gen/senior/project/R.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SMS_Settings_Activity.java" tooltip="SAS_revB/src/senior/project/SMS_Settings_Activity.java">
-<persistable path="/SAS_revB/src/senior/project/SMS_Settings_Activity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.resources.ResourcesEditor" name="strings.xml" tooltip="SAS_revB/res/values/strings.xml">
-<persistable path="/SAS_revB/res/values/strings.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="SAS_revB/AndroidManifest.xml">
-<persistable path="/SAS_revB/AndroidManifest.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Settings_Activity.java" tooltip="SAS_revB/src/senior/project/Settings_Activity.java">
-<persistable path="/SAS_revB/src/senior/project/Settings_Activity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AppLog.java" tooltip="SAS_revB/src/senior/project/AppLog.java">
-<persistable path="/SAS_revB/src/senior/project/AppLog.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Test_SMS_Activity.java" tooltip="SAS_revB/src/senior/project/Test_SMS_Activity.java">
-<persistable path="/SAS_revB/src/senior/project/Test_SMS_Activity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Plot_Activity.java" tooltip="SAS_revB/src/senior/project/Plot_Activity.java">
-<persistable path="/SAS_revB/src/senior/project/Plot_Activity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="audioGen.java" tooltip="SAS_revB/src/senior/project/audioGen.java">
-<persistable path="/SAS_revB/src/senior/project/audioGen.java"/>
 </file>
 </mruList>
 </workbench>

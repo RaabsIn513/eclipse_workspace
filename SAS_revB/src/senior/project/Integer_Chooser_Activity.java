@@ -33,6 +33,7 @@ public class Integer_Chooser_Activity extends Activity{
 	private static TextView dispVal;
 	private static String crementBy = null;
 	private static String nameReq = null;
+	private static String DESC_TEXT = null;
 	private static int value = 0;
 	private static int Max = 9999;
 	private static int Min = -9999;
@@ -47,7 +48,7 @@ public class Integer_Chooser_Activity extends Activity{
 	public void onCreate(Bundle savedInstanceState){
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.integer_chooser);
-	    
+	    TextView desc = (TextView) findViewById(R.id.txtDesc);
 	    // incoming values
 	    try{
 	    	nameReq	  = this.getIntent().getExtras().getString("NAME");
@@ -56,8 +57,9 @@ public class Integer_Chooser_Activity extends Activity{
 		    Max       = this.getIntent().getExtras().getInt("MAX_VALUE");
 		    Min       = this.getIntent().getExtras().getInt("MIN_VALUE");
 		    byList	  = this.getIntent().getExtras().getString("INTLIST");
+		    DESC_TEXT= this.getIntent().getExtras().getString("DESC_TEXT");
 		    
-	    
+		    desc.setText(DESC_TEXT);
 		    if( crementBy != null )	// parse crementBy to a usable int and operation
 		    {
 		    	crementBy = crementBy.toLowerCase();

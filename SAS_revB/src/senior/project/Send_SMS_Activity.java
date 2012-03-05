@@ -1,5 +1,6 @@
 package senior.project;
 
+import java.util.LinkedList;
 import java.util.Map;
 
 import android.app.PendingIntent;
@@ -104,7 +105,7 @@ public class Send_SMS_Activity {
     	return result;
     }
 	
-	private static String[] retrieveSASContacts(Context con)
+	private static String[] retrieveDateTimeOps(Context con)
 	{
 	    ContactsFile = con.getSharedPreferences(SAS_Contacts, 0);
 		Map<String,?> rawCont;
@@ -124,6 +125,41 @@ public class Send_SMS_Activity {
 		{}
 	    return result;
 	}
-
+   
+    private static String[] retrieveSASContacts( Context con )
+    {
+    	LinkedList<String> temp = new LinkedList<String>();
+    	int j =0;
+    	
+	    ContactsFile = con.getSharedPreferences(SAS_Contacts, 0);
+		Map<String,?> rawCont;
+		String[] keys = null;
+		String[] result;
+		// build array to show in listView
+		try{
+			rawCont = ContactsFile.getAll();
+			
+			Object[] okeys = rawCont.keySet().toArray();
+			Object[] ovals = rawCont.values().toArray();
+			keys = Obj_to_Str(okeys);
+			String[] vals = Obj_to_Str(ovals);
+    	
+	    	for( int i = 0; i < keys.length; i++ )
+	    	{
+	    		if( keys[i].intern() != "INCLUDE_DATE" && keys[i].intern() != "INCLUDE_TIME" )
+	    			temp.add(vals[i]);
+	    	}
+	    	result = new String[temp.toArray().length];
+	    	for( int i = 0; i < result.length; i++ )
+	    		result[i] = temp.get(i);
+	    	return result;
+		}
+		catch(Exception ex)
+		{
+			ex.getMessage();
+			result = null;
+			return result;
+		}
+    }
 	
 }

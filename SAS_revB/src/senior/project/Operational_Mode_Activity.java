@@ -58,7 +58,7 @@ public class Operational_Mode_Activity extends Activity{
 					THRESH_CNT = 0; 	// Reset the THRESH_CNT
 		        	AppLog.APP_TAG = "TRIGGERin";
 		        	AppLog.logString("AVG DIFF: " + avgDiff);
-		        	
+		        			        	
 		        	String[] info = new String[1];
 		        	info[0] = "avg of (Max - avg) for the event was: " + String.valueOf(avgDiff);
 		        	Send_SMS_Activity.sendAlertSMS(info, getApplicationContext());
@@ -166,13 +166,14 @@ public class Operational_Mode_Activity extends Activity{
 	public static TextView debug;
 	private static String SAS_Settings = "SAS_SettingsFile";
 	private static SharedPreferences SettingsFile;
+	public  static Context thisContext;
 		
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.main_operational);
 	    
-	    Context con = getApplicationContext();
+	    Context thisContext = getApplicationContext();
 	    // Get our settings
 	    try{
 		    SettingsFile = getSharedPreferences(SAS_Settings, 0);
@@ -196,7 +197,6 @@ public class Operational_Mode_Activity extends Activity{
         // kick off the data generating thread:
         audioThread = new Thread(audioData);
         audioThread.start();
-        
         
         if( trigger )
         {
