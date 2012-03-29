@@ -21,8 +21,6 @@ public class Operational_Mode_Activity extends Activity{
     	
     	// Constructor sets up the series
         public mUpdater(boolean trigger ) {
-            //this.data = data;
-        	//this.aTV = aTV;
         	this.mTrigger = trigger;
         }
 
@@ -51,7 +49,7 @@ public class Operational_Mode_Activity extends Activity{
 				THRESH_CNT += 1;
 				avgDiff += (Max - avg);
 				
-				if( THRESH_CNT >= THRESH_SAMPS )
+				if( THRESH_CNT >= THRESH_SAMPS )			// We have an event!
 				{	
 					avgDiff = avgDiff / THRESH_CNT;
 					mTrigger = true;
@@ -190,7 +188,7 @@ public class Operational_Mode_Activity extends Activity{
 	    
 	    mUpdater audioIn = new mUpdater(trigger);
 	    
-	    audioData = new audioGen();
+	    audioData = new audioGen(8000);
 	    
 	    audioData.addObserver(audioIn);
 	    

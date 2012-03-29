@@ -1,6 +1,5 @@
 package senior.project;
 
-import java.nio.ByteBuffer;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -37,7 +36,7 @@ public class audioGen implements Runnable {
     //private MediaPlayer   mPlayer = null;
     //private static final int offsetInBytes = 0;
     private static final short offsetInShorts = 0;
-    private static final int sampleRateInHz = 8000;
+    private static int sampleRateInHz = 8000;
     public static final int channelConfig = android.media.AudioFormat.CHANNEL_IN_DEFAULT;
     public static final int audioFormat = android.media.AudioFormat.ENCODING_DEFAULT;
     
@@ -45,6 +44,15 @@ public class audioGen implements Runnable {
     private MyObservable notifier;
     {
         notifier = new MyObservable();
+    }
+    public audioGen( int SAMPLE_RATE )
+    {
+    	AppLog.APP_TAG = "audioGen";
+    	AppLog.logString("SAMPLE_RATE: " + SAMPLE_RATE);
+    	sampleRateInHz = SAMPLE_RATE;
+    	
+    	if( mRecorder != null )
+    		mRecorder = null;
     }
     
     public void release()
@@ -63,6 +71,7 @@ public class audioGen implements Runnable {
     }
     
     public void run(){
+    	
     	
     	mRecorder = getAudioRecorder(sampleRateInHz, audioFormat, 512);
 
@@ -100,10 +109,11 @@ public class audioGen implements Runnable {
     
     /**
      * 
-     * @param sampRate
-     * @param format
-     * @param minBuffSize
-     * @return
+     * @param sampRate - Desired Sample Rate in Hertz
+     * @param format - audioFormat, typically default
+     * @param minBuffSize - The desired buffer size. This may increase
+     * 						in order to meet the specified sampRate
+     * @return AudioRecord object - a working AudioRecord object ready to be used (.read())
      */
     private AudioRecord getAudioRecorder(int sampRate, int format, int minBuffSize )
     {

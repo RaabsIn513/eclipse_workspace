@@ -12,20 +12,20 @@ import android.widget.TextView;
 /*-----------------------------------------------------*\
  * Android Activity: Integer_Chooser_Activiy.java
  * 
- * Required Extras (Passed in values):
+ * REQUIRED EXTRAS (Passed in values):
  * NAME		  - The name of the value that is changing
- * ORIGINAL   - The original value which is used at the
- * 			    starting point when the activity launches
+ * ORIGINAL   - The original value which is used as the
+ * 			    starting number when the activity launches
  * MAX_VALUE  - The max value that is allowed to be used
  * MIN_VALUE  - The min value that is allowed to be used
  * 
  * CREMENT_BY - increment/decrement by value. This is a
- * 				string so that it can specify between
+ * 				string so that you can specify between
  * 				addition and multiplication. It is 
  * 				parsed
- * 
+ * NOT REQUIRED EXTRAS
  * INTLIST 	  - Comma separated string containing the
- * 				integers in accending order. 
+ * 				integers in ascending order. 
  * 
  \*----------------------------------------------------*/
 public class Integer_Chooser_Activity extends Activity{

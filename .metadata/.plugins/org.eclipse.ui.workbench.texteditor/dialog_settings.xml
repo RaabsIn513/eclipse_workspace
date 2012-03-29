@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Toast" key="selection"/>
+		<item value="THRESH_DIF" key="selection"/>
 		<list key="findhistory">
+			<item value="Thresh_Dif"/>
+			<item value="audioData"/>
+			<item value="audioGen"/>
 			<item value="Toast"/>
 			<item value="\n"/>
 			<item value="new"/>
 			<item value="HISTORY_SIZE"/>
 			<item value="SAMP_HISTORY_SIZE"/>
-			<item value="getAppli"/>
-			<item value="AMP_HISTORY_SIZE"/>
-			<item value="AMP_HIST_SIZE"/>
 		</list>
 		<list key="replacehistory">
 			<item value="SAMP_HISTORY_SIZE"/>

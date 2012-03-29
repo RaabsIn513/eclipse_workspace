@@ -54,6 +54,7 @@ public class Plot_Activity extends Activity {
 	            plot.addSeries(audioHistSeries, audioFormat);
 	            plot.addSeries(maxSeries, maxFormat);
 	            plot.addSeries(minSeries, minFormat);
+	            plot.setDomainBoundaries(0, SAMP_HISTORY_SIZE, BoundaryMode.FIXED);
             }
             // Bar plot
             if( dispForm == "FFT")
@@ -94,54 +95,40 @@ public class Plot_Activity extends Activity {
 			dispForm = dispForm.toString();
 			dispForm = dispForm.intern();
 			if( dispForm == "FFT" )
-				sectionalFFT( data );
+				//sectionalFFT( data );
+				FFT( data );
 			if( dispForm == "WAVE" )
 				waveform( data );
 			
         }
 		
-		/**
-		 * sectionalFFT takes an array with size greater than SAMP_HISTORY_SIZE
-		 * and creates FFT frames to graph. The graph's domain is equal
-		 * to SAMP_HISTORY_SIZE
-		 * @param input
-		 */
-		private void sectionalFFT( double[] input )
+		private void FFT( double[] input )
 		{
 			AppLog.APP_TAG = "sectionalFFT";
-			// Split this data into pieces that are SAMP_HISTORY_SIZE elements in size
-			int nFrames = input.length / SAMP_HISTORY_SIZE;			// Number of frames we will create from a mic read
-			Number[] graphable = new Number[SAMP_HISTORY_SIZE];
-			double[] section = new double[SAMP_HISTORY_SIZE];
+			Number[] graphable = new Number[input.length/2];
+			graphable = fft_mag(input);
+			audioHist.clear();
 			
-			AppLog.logString("input.length: " + input.length +
-					" nFrames: " + nFrames);
-			
-			// for the number of sections
-			for ( int j = 1; j < nFrames + 1; j++ )
+			// space out the frequency info gained from the fft_mag and put it into audioHist
+			int k = graphable.length / SAMP_HISTORY_SIZE;
+			int j = 0;
+			for( int i = 0; i < SAMP_HISTORY_SIZE; i++ )
 			{
-				// Get the section
-				for( int i = 0; i < SAMP_HISTORY_SIZE; i++ )
-					section[i] = input[i*j];				// get the fft magnitude of 64 value frame
-				graphable = fft_mag( section );
-				audioHist.clear();
-				for( int i = 0; i < graphable.length; i++)
-					audioHist.add(i, graphable[i]);
-					
-				// adjust the Range (y axis) to be as long as it needs to be. 
-				//plot.setRangeBoundaries(0, max(graphable), BoundaryMode.FIXED);
-				plot.setRangeBoundaries(30, 100, BoundaryMode.FIXED);
-				// update the graph. 
-				audioHistSeries.setModel(audioHist, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY);
-				plot.setDomainBoundaries(0, graphable.length, BoundaryMode.FIXED);
-				try {
-					dynamicPlot.postRedraw();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				audioHist.add(i, graphable[j]);
+				j = j + k;
+			}
+			// adjust the Range (y axis) to be as long as it needs to be. 
+			//plot.setRangeBoundaries(0, max(graphable), BoundaryMode.FIXED);
+			plot.setRangeBoundaries(30, 300, BoundaryMode.FIXED);
+			// update the graph. 
+			audioHistSeries.setModel(audioHist, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY);
+			plot.setDomainBoundaries(0, SAMP_HISTORY_SIZE, BoundaryMode.FIXED);
+			try {
+				dynamicPlot.postRedraw();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
 		}
-		
 		private void waveform( double[] input )
 		{
 			if( audioHist.size() >= SAMP_HISTORY_SIZE)
@@ -170,8 +157,8 @@ public class Plot_Activity extends Activity {
 			for( int i = 0; i < SAMP_HISTORY_SIZE; i++)
 				audioHist.addLast(input[i]);	
 			
-			graphLine(0, avg, 64, avg, maxSeries);
-			graphLine(0, Max, 64, Max, minSeries);
+			graphLine(0, avg, SAMP_HISTORY_SIZE, avg, maxSeries);
+			graphLine(0, Max, SAMP_HISTORY_SIZE, Max, minSeries);
 			audioHistSeries.setModel(audioHist, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY);
 			dynamicPlot.setRangeBoundaries(-30000, 30000, BoundaryMode.FIXED);
 			try {
@@ -280,7 +267,8 @@ public class Plot_Activity extends Activity {
     private SimpleXYSeries minSeries       = new SimpleXYSeries("Current Max");
     private LinkedList<Double> ampHist     = new LinkedList<Double>();
     private LinkedList<Number> audioHist = new LinkedList<Number>();
-    private final int SAMP_HISTORY_SIZE = 64;
+    private int SAMPLE_RATE;
+    private int SAMP_HISTORY_SIZE = 64;
     public static int AMP_HIST_SIZE = 32;
 	private int THRESH_SAMPS;
 	private int THRESH_CNT;
@@ -297,13 +285,15 @@ public class Plot_Activity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_plot);
-        
+        SumHigh = 0.0;
 	    // Get our settings
 	    try{
 		    SettingsFile = getSharedPreferences(SAS_Settings, 0);
 		    AMP_HIST_SIZE = Integer.valueOf(SettingsFile.getInt("AMP_HIST_SIZE", 32));
 		    THRESH_DIFF = Integer.valueOf(SettingsFile.getInt("THRESH_DIFF", 20));
 		    THRESH_SAMPS = Integer.valueOf(SettingsFile.getInt("THRESH_SAMPS", 20));
+		    SAMP_HISTORY_SIZE = Integer.valueOf(SettingsFile.getInt("SAMP_HISTORY_SIZE", 64));
+		    SAMPLE_RATE = Integer.valueOf(SettingsFile.getInt("SAMPLE_RATE", 8000));
 	    }
 	    catch( Exception ex )
 	    {
@@ -316,12 +306,12 @@ public class Plot_Activity extends Activity {
         
         // get handles to our View defined in layout.xml:
         dynamicPlot = (XYPlot) findViewById(R.id.dynamicPlot);
- 
+        
         // sets up the plot that will be updated
         plotUpdater = new mPlotUpdater(dynamicPlot);
 
         // start a new instance of a class that will generate data
-        audioData = new audioGen();
+        audioData = new audioGen(SAMPLE_RATE);
         
         // hook up the plotUpdater to the data model:
         audioData.addObserver( plotUpdater );
