@@ -22,17 +22,23 @@ import com.androidplot.xy.XYPlot;
 import com.androidplot.xy.XYStepMode;
 
 public class Plot_Activity extends Activity {
-	
+	// ------------------------------------------------
     // redraws a plot whenever an update is received:
-    private class mPlotUpdater implements Observer {
+    // ------------------------------------------------
+	private class mPlotUpdater implements Observer {
         XYPlot plot;
-        // Constructor sets up the series
+        
+        /*
+         * Constructor sets up the series. 
+         * - set up the plot for use as either
+         *   WAVE or FFT.
+         * - Made ready for incoming data
+         */
         public mPlotUpdater(XYPlot plot) {
             this.plot = plot;
             // only display whole numbers in domain labels
             plot.getGraphWidget().setDomainValueFormat(new DecimalFormat("0"));
             plot.getGraphWidget().setRangeValueFormat(new DecimalFormat("0"));
-            
             // Line plot
             if( dispForm == "WAVE")
             {
@@ -82,7 +88,11 @@ public class Plot_Activity extends Activity {
             plot.getRangeLabelWidget().pack();
             plot.disableAllMarkup();
         }
-
+        
+        /*
+         * (non-Javadoc)
+         * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+         */
 		@Override
         public void update(Observable o, Object arg) {
 
@@ -102,6 +112,9 @@ public class Plot_Activity extends Activity {
 			
         }
 		
+		/*
+		 * Fast Fourier Transform Method
+		 */
 		private void FFT( double[] input )
 		{
 			AppLog.APP_TAG = "sectionalFFT";
@@ -110,6 +123,7 @@ public class Plot_Activity extends Activity {
 			audioHist.clear();
 			
 			// space out the frequency info gained from the fft_mag and put it into audioHist
+			// in order to fit the width of our plot.
 			int k = graphable.length / SAMP_HISTORY_SIZE;
 			int j = 0;
 			for( int i = 0; i < SAMP_HISTORY_SIZE; i++ )
@@ -129,20 +143,34 @@ public class Plot_Activity extends Activity {
 				e.printStackTrace();
 			}
 		}
+		
+		/*
+		 * Waveform Method
+		 * - Domain adjusts to SAMP_HISTORY_SIZE
+		 * - A: Compute the max of the sample from the microphone
+		 * - B: Manage the sum of the list which is length AMP_HIST_SIZE
+		 * - C: Compute the average
+		 * - D: If the current max for the sample differs from the average 
+		 *      by a value greater than THRESH_DIFF, increment THRESH_CNT.
+		 *      If it does not, set THRESH_CNT back to zero. 
+		 * - E: In the event that THRESH_CNT is greater than THRESH_SAMPS, 
+		 * 		we have an event (but this is only the plot activity, no need
+		 * 		to send an alert sms)
+		 */
 		private void waveform( double[] input )
 		{
 			if( audioHist.size() >= SAMP_HISTORY_SIZE)
 				audioHist.clear();
 		
-			double Max = max(input);
+			double Max = max(input);				// A
 			//double Min = min(input);
-			SumHigh = manageHighSum( Max );
-			double avg = SumHigh / AMP_HIST_SIZE;
+			SumHigh = manageHighSum( Max );			// B
+			double avg = SumHigh / AMP_HIST_SIZE;	// C
 					
-			if( ( Max - avg ) > THRESH_DIFF )
+			if( ( Max - avg ) > THRESH_DIFF )		// D
 			{		
 				THRESH_CNT += 1;
-				if( THRESH_CNT >= THRESH_SAMPS )
+				if( THRESH_CNT >= THRESH_SAMPS )	// E
 				{	
 					//mTrigger = true;
 					THRESH_CNT = 0; 	// Reset the THRESH_CNT
@@ -157,8 +185,8 @@ public class Plot_Activity extends Activity {
 			for( int i = 0; i < SAMP_HISTORY_SIZE; i++)
 				audioHist.addLast(input[i]);	
 			
-			graphLine(0, avg, SAMP_HISTORY_SIZE, avg, maxSeries);
-			graphLine(0, Max, SAMP_HISTORY_SIZE, Max, minSeries);
+			graphLine(0, avg, SAMP_HISTORY_SIZE, avg, maxSeries);	// Graph average line
+			graphLine(0, Max, SAMP_HISTORY_SIZE, Max, minSeries);	// Graph max of this sample
 			audioHistSeries.setModel(audioHist, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY);
 			dynamicPlot.setRangeBoundaries(-30000, 30000, BoundaryMode.FIXED);
 			try {
@@ -166,7 +194,6 @@ public class Plot_Activity extends Activity {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		
 		}
 
 		private void graphLine( Number X1, Number Y1, Number X2, Number Y2, SimpleXYSeries ser )
@@ -286,7 +313,7 @@ public class Plot_Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_plot);
         SumHigh = 0.0;
-	    // Get our settings
+	    // Get our settings from the activity that launched this one.
 	    try{
 		    SettingsFile = getSharedPreferences(SAS_Settings, 0);
 		    AMP_HIST_SIZE = Integer.valueOf(SettingsFile.getInt("AMP_HIST_SIZE", 32));
@@ -307,10 +334,10 @@ public class Plot_Activity extends Activity {
         // get handles to our View defined in layout.xml:
         dynamicPlot = (XYPlot) findViewById(R.id.dynamicPlot);
         
-        // sets up the plot that will be updated
+        // sets up the component (dynamicPlot) that will be updated
         plotUpdater = new mPlotUpdater(dynamicPlot);
 
-        // start a new instance of a class that will generate data
+        // start a new instance of a class that will generate our data
         audioData = new audioGen(SAMPLE_RATE);
         
         // hook up the plotUpdater to the data model:
@@ -323,26 +350,16 @@ public class Plot_Activity extends Activity {
 		
     @Override
     public void onBackPressed() {
-    	audioData.release();	// release our recorder object
-    	// Thread operations aren't support, android takes care of this 
-    	// with finish since this activity created this thread, it kills it
+    	// release our recorder object Android takes 
+    	// care of this with finish() since this activity 
+    	// created this thread, it kills it
+    	audioData.release();	
     	//audioThread.stop();
     	//audioThread.destroy();
     	finish();
     return;
     }
     
-    protected void alertBox(String title, String myMessage)
-    {
-	    new AlertDialog.Builder(this)
-	       .setMessage(myMessage)
-	       .setTitle(title)
-	       .setCancelable(true)
-	       .setNeutralButton(android.R.string.cancel,
-	          new DialogInterface.OnClickListener() {
-	          public void onClick(DialogInterface dialog, int whichButton){}
-	          })
-	       .show();
-    }
+
 
 }

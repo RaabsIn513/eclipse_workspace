@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, SAS_revActivity!</string>
+    <string name="hello">Smartphone Acoustic Sensor</string>
     
     <string name="app_name">SAS_revB</string>
 	<string name="plotAct_text">Plot View</string>

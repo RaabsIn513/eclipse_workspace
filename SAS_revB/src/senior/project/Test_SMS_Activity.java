@@ -36,7 +36,13 @@ public class Test_SMS_Activity extends Activity {
                 String phoneNo = txtPhoneNo.getText().toString();
                 String message = txtMessage.getText().toString();                 
                 if (phoneNo.length()>0 && message.length()>0)                
-                    sendSMS(phoneNo, message);                
+                {    
+                	//sendSMS(phoneNo, message);                
+                	Context con = getApplicationContext();
+                	String[] mess = new String[2];
+                	mess[0] = message;
+                	Send_SMS_Activity.sendAlertSMS(mess, con);
+                }
                 else
                     Toast.makeText(getBaseContext(), 
                         "Please enter both phone number and message.", 

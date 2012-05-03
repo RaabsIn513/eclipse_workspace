@@ -28,7 +28,9 @@ public class SMS_Settings_Activity extends Activity {
 	CheckBox cbDate;
 	CheckBox cbTime;
 	public static String SAS_Contacts = "SAS_ContactsFile";
+	public static String SAS_Settings = "SAS_SettingsFile";
 	private SharedPreferences ContactsFile;
+	private SharedPreferences SettingsFile;
 	
 	private int ADD_REQUEST = 0;
 	private int EDIT_REQUEST = 1;
@@ -83,6 +85,7 @@ public class SMS_Settings_Activity extends Activity {
     	AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
     	
 		ContactsFile = getSharedPreferences(SAS_Contacts, 0);
+		SettingsFile = getSharedPreferences(SAS_Settings, 0);
 		Map<String,?> rawCont;
 		String[] keys = null;
 		String[] vals = null;
@@ -147,18 +150,25 @@ public class SMS_Settings_Activity extends Activity {
 		return false;
     }
     
+    /*
+     * Restores the state of the Date checkbox and Time checkboxes by reading
+     * the SAS_Settings shared preferences file
+     */
     public boolean restoreDateTimeCb()
     {
-		ContactsFile = getSharedPreferences(SAS_Contacts, 0);
-
-		if( !containsKey(ContactsFile, "INCLUDE_DATE"))
-			ContactsFile.edit().putBoolean("INCLUDE_DATE", false);
-		if( !containsKey(ContactsFile, "INCLUDE_TIME"))
-			ContactsFile.edit().putBoolean("INCLUDE_TIME", false);		
+		//ContactsFile = getSharedPreferences(SAS_Contacts, 0);
+    	SettingsFile = getSharedPreferences( SAS_Settings, 0 );
+    	
+    	// Check to see if SettingsFile has "INCLUDE_DATE" and "INCLUDE_TIME" keys
+    	// if not, add those keys to the file and set them to false
+		if( !containsKey(SettingsFile, "INCLUDE_DATE"))
+			SettingsFile.edit().putBoolean("INCLUDE_DATE", false);
+		if( !containsKey(SettingsFile, "INCLUDE_TIME"))
+			SettingsFile.edit().putBoolean("INCLUDE_TIME", false);		
 		
 		try{		
-			boolean idate = ContactsFile.getBoolean("INCLUDE_DATE", true );
-			boolean itime = ContactsFile.getBoolean("INCLUDE_TIME", true );
+			boolean idate = SettingsFile.getBoolean("INCLUDE_DATE", true );
+			boolean itime = SettingsFile.getBoolean("INCLUDE_TIME", true );
 			cbDate.setChecked(idate);
 			cbTime.setChecked(itime);
 			return true;
@@ -170,6 +180,10 @@ public class SMS_Settings_Activity extends Activity {
 		}
     }
     
+    /*
+     * Restores the Contacts list from the SAS_Contacts shared preferences
+     * file
+     */
     public boolean restoreContactsList()
     {
 		ContactsFile = getSharedPreferences(SAS_Contacts, 0);
@@ -245,8 +259,8 @@ public class SMS_Settings_Activity extends Activity {
     public boolean setDateBool( boolean TF )
     {
     	try{
-    	ContactsFile = getSharedPreferences(SAS_Contacts, 0);
-    	SharedPreferences.Editor contEd = ContactsFile.edit();
+    	SettingsFile = getSharedPreferences(SAS_Settings, 0);
+    	SharedPreferences.Editor contEd = SettingsFile.edit();
     	contEd.putBoolean("INCLUDE_DATE", TF);
     	contEd.commit();
     	
@@ -264,8 +278,8 @@ public class SMS_Settings_Activity extends Activity {
     public boolean setTimeBool( boolean TF )
     {
     	try{
-    	ContactsFile = getSharedPreferences(SAS_Contacts, 0);
-    	SharedPreferences.Editor contEd = ContactsFile.edit();
+    	SettingsFile = getSharedPreferences(SAS_Settings, 0);
+    	SharedPreferences.Editor contEd = SettingsFile.edit();
     	contEd.putBoolean("INCLUDE_TIME", TF);
     	contEd.commit();
     	

@@ -207,9 +207,10 @@ public class Operational_Mode_Activity extends Activity{
 	
     @Override
     public void onBackPressed() {
-    	audioData.release();	// release our recorder object
-    	// Thread operations aren't support, android takes care of this 
-    	// with finish since this activity created this thread, it kills it
+    	// release our recorder object Android takes 
+    	// care of this with finish() since this activity 
+    	// created this thread, it kills it
+    	audioData.release();	
     	//audioThread.stop();
     	//audioThread.destroy();
     	finish();

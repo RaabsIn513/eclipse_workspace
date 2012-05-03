@@ -25,7 +25,7 @@ public class Send_SMS_Activity {
 	
 	public static boolean sendAlertSMS( String[] info, Context con )
 	{
-		String[] message = new String[info.length + 5];
+		String[] message = new String[info.length + 7];
 	    try{
 	    	// Get some background info that will always be sent. 
 		    SettingsFile = con.getSharedPreferences(SAS_Settings, 0);
@@ -41,11 +41,17 @@ public class Send_SMS_Activity {
 			message[2] = "THRESH_DIFF: " + THRESH_DIFF;
 			message[3] = "SAMP_HISTORY_SIZE: " + SAMP_HISTORY_SIZE;
 			message[4] = "SAMPLE_RATE: " + SAMPLE_RATE;
-		   	// Build message
+			
+			message[5] = retrieveDateTimeOps(con)[0];
+			message[6] = retrieveDateTimeOps(con)[1];
+		   	
+			// Build message
 		    for( int i = 5; i < message.length; i++ )
-		    	message[i] = info[i-5];
+		    	message[i] = info[i-7];
 		    
-		    if( sendSMS(message, contacts, con))
+
+		    
+			if( sendSMS(message, contacts, con))
 		    	return true;
 		    else
 		    	return false;
@@ -83,6 +89,8 @@ public class Send_SMS_Activity {
 		String message = new String();
 		for( int i = 0; i < TXTmessage.length; i++ )
 			message += TXTmessage[i] + "\n";
+		
+
 		for( int i = 0; i < recipients.length; i++ )
 			sendSMS( recipients[i], message, con );
 		
@@ -107,13 +115,15 @@ public class Send_SMS_Activity {
 	
 	private static String[] retrieveDateTimeOps(Context con)
 	{
-	    ContactsFile = con.getSharedPreferences(SAS_Contacts, 0);
+	    //ContactsFile = con.getSharedPreferences(SAS_Contacts, 0);
+	    SettingsFile = con.getSharedPreferences(SAS_Settings, 0);
 		Map<String,?> rawCont;
 		String[] keys = null;
 		String[] result = null;
 		// build array to show in listView
 		try{
-			rawCont = ContactsFile.getAll();
+			//rawCont = ContactsFile.getAll();
+			rawCont = SettingsFile.getAll();
 			
 			Object[] okeys = rawCont.keySet().toArray();
 			Object[] ovals = rawCont.values().toArray();
