@@ -1,0 +1,41 @@
+		/**
+		 * sectionalFFT takes an array with size greater than SAMP_HISTORY_SIZE
+		 * and creates FFT frames to graph. The graph's domain is equal
+		 * to SAMP_HISTORY_SIZE
+		 * @param input
+		 */
+		private void sectionalFFT( double[] input )
+		{
+			AppLog.APP_TAG = "sectionalFFT";
+			// Split this data into pieces that are SAMP_HISTORY_SIZE elements in size
+			int nFrames = input.length / SAMP_HISTORY_SIZE;			// Number of frames we will create from a mic read
+			Number[] graphable = new Number[SAMP_HISTORY_SIZE];		// Graphable samples the size of SAMP_HISTORY_SIZE
+			double[] section = new double[SAMP_HISTORY_SIZE];
+			
+			AppLog.logString("input.length: " + input.length +
+					" nFrames: " + nFrames);
+			
+			// for the number of Frames
+			for ( int j = 1; j < nFrames + 1; j++ )
+			{
+				// Get the section
+				for( int i = 0; i < SAMP_HISTORY_SIZE; i++ )
+					section[i] = input[i*j];				
+				graphable = fft_mag( section );					// get the fft magnitude of SAMP_HISTORY_SIZE values frame
+				audioHist.clear();
+				for( int i = 0; i < graphable.length; i++)
+					audioHist.add(i, graphable[i]);
+					
+				// adjust the Range (y axis) to be as long as it needs to be. 
+				//plot.setRangeBoundaries(0, max(graphable), BoundaryMode.FIXED);
+				plot.setRangeBoundaries(30, 100, BoundaryMode.FIXED);
+				// update the graph. 
+				audioHistSeries.setModel(audioHist, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY);
+				plot.setDomainBoundaries(0, graphable.length, BoundaryMode.FIXED);
+				try {
+					dynamicPlot.postRedraw();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
