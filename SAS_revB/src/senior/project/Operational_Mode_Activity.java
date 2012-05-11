@@ -15,13 +15,50 @@ import android.widget.Toast;
 
 public class Operational_Mode_Activity extends Activity{
 
+	private static Button exitBT;
+	private LinkedList<Double> ampHist = new LinkedList<Double>();
+	//private Double SumHigh = 0.0;
+	//private Double avg = 0.0;
+	//private int AMP_SAMP_HISTORY_SIZE;
+	//private int THRESH_SAMPS;
+	//private int THRESH_CNT;
+	//private double avgDiff = 0;
+	//private int THRESH_DIFF;
+	private final int SAMP_HISTORY_SIZE = 64;
+	private boolean trigger = false;
+	public static audioGen audioData;
+	public static Thread audioThread;
+	public static TextView debug;
+	private static String SAS_Settings = "SAS_SettingsFile";
+	private static SharedPreferences SettingsFile;
+	public  static Context thisContext;
+	
+	
     private class mUpdater implements Observer {
         //double[] data;
         boolean mTrigger = false;
-    	
+    	private Double SumHigh = 0.0;
+    	private Double avg = 0.0;
+    	private int AMP_SAMP_HISTORY_SIZE;
+    	private int THRESH_DIFF;
+    	private int THRESH_SAMPS;
+    	private int THRESH_CNT;
+    	private double avgDiff = 0;
     	// Constructor sets up the series
         public mUpdater(boolean trigger ) {
         	this.mTrigger = trigger;
+        	
+    	    try{
+    		    SettingsFile = getSharedPreferences(SAS_Settings, 0);
+    		    AMP_SAMP_HISTORY_SIZE = Integer.valueOf(SettingsFile.getInt("AMP_SAMP_HISTORY_SIZE", 64));
+    		    THRESH_DIFF = Integer.valueOf(SettingsFile.getInt("THRESH_DIFF", 20));
+    		    THRESH_SAMPS = Integer.valueOf(SettingsFile.getInt("THRESH_SAMPS", 20));
+    	    }
+    	    catch( Exception ex )
+    	    {
+    	    	AppLog.logString(ex.getMessage());    	    	
+    	    }
+        	
         }
 
 		@Override
@@ -66,8 +103,6 @@ public class Operational_Mode_Activity extends Activity{
 				THRESH_CNT = 0;			// Reset the THRESH_CNT back to zero since we want consecutive samples			
 				        
 		}
-		
-		
 		
 		private Number[] fft_mag( double[] data )
 		{
@@ -147,25 +182,7 @@ public class Operational_Mode_Activity extends Activity{
 			return result;
 		}
     }
-	
-	private static Button exitBT;
-	private LinkedList<Double> ampHist = new LinkedList<Double>();
-	private Double SumHigh = 0.0;
-	private Double avg = 0.0;
-	private int AMP_SAMP_HISTORY_SIZE;
-	private int THRESH_SAMPS;
-	private int THRESH_CNT;
-	private double avgDiff = 0;
-	private int THRESH_DIFF;
-	private final int SAMP_HISTORY_SIZE = 64;
-	private boolean trigger = false;
-	public static audioGen audioData;
-	public static Thread audioThread;
-	public static TextView debug;
-	private static String SAS_Settings = "SAS_SettingsFile";
-	private static SharedPreferences SettingsFile;
-	public  static Context thisContext;
-		
+			
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 	    super.onCreate(savedInstanceState);
@@ -173,6 +190,7 @@ public class Operational_Mode_Activity extends Activity{
 	    
 	    Context thisContext = getApplicationContext();
 	    // Get our settings
+	    /*
 	    try{
 		    SettingsFile = getSharedPreferences(SAS_Settings, 0);
 		    AMP_SAMP_HISTORY_SIZE = Integer.valueOf(SettingsFile.getInt("AMP_SAMP_HISTORY_SIZE", 64));
@@ -183,6 +201,7 @@ public class Operational_Mode_Activity extends Activity{
 	    {
 	    	ex.getMessage();
 	    }
+	    */
 	    exitBT = (Button) findViewById(R.id.btn_exitOp);
 	    debug = (TextView) findViewById(R.id.tvDebug);
 	    

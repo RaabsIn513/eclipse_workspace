@@ -1,5 +1,6 @@
 package senior.project;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -22,10 +23,9 @@ public class Send_SMS_Activity {
 	private static int SAMPLE_RATE;
 	private static Context parentContext; 
 	
-	
 	public static boolean sendAlertSMS( String[] info, Context con )
 	{
-		String[] message = new String[info.length + 7];
+		LinkedList<String> message = new LinkedList<String>();
 	    try{
 	    	// Get some background info that will always be sent. 
 		    SettingsFile = con.getSharedPreferences(SAS_Settings, 0);
@@ -33,25 +33,23 @@ public class Send_SMS_Activity {
 		    THRESH_SAMPS = Integer.valueOf(SettingsFile.getInt("THRESH_SAMPS", 20));
 		    THRESH_DIFF = Integer.valueOf(SettingsFile.getInt("THRESH_DIFF", 20));
 		    SAMP_HISTORY_SIZE = Integer.valueOf(SettingsFile.getInt("SAMP_HISTORY_SIZE", 64));
-		    SAMPLE_RATE = Integer.valueOf(SettingsFile.getInt("SAMP_HISTORY_SIZE", 8000));
+		    SAMPLE_RATE = Integer.valueOf(SettingsFile.getInt("SAMPLE_RATE", 8000));
 		    String[] contacts = retrieveSASContacts(con);
 		    
-			message[0] = "AMP_HISTORY_SIZE: " + AMP_HISTORY_SIZE;
-			message[1] = "THRESH_SAMPS: " + THRESH_SAMPS;
-			message[2] = "THRESH_DIFF: " + THRESH_DIFF;
-			message[3] = "SAMP_HISTORY_SIZE: " + SAMP_HISTORY_SIZE;
-			message[4] = "SAMPLE_RATE: " + SAMPLE_RATE;
+			message.add("AMP_HISTORY_SIZE: " + AMP_HISTORY_SIZE);
+			message.add("THRESH_SAMPS: " + THRESH_SAMPS);
+			message.add("THRESH_DIFF: " + THRESH_DIFF);
+			message.add("SAMP_HISTORY_SIZE: " + SAMP_HISTORY_SIZE);
+			message.add("SAMPLE_RATE: " + SAMPLE_RATE);
 			
-			message[5] = retrieveDateTimeOps(con)[0];
-			message[6] = retrieveDateTimeOps(con)[1];
-		   	
-			// Build message
-		    for( int i = 5; i < message.length; i++ )
-		    	message[i] = info[i-7];
-		    
-
-		    
-			if( sendSMS(message, contacts, con))
+			message.add(retrieveDateTimeOps(con)[0]);
+			message.add(retrieveDateTimeOps(con)[1]);
+		   	for( int i = 0; i < info.length; i++ )
+		   		message.add(info[i]);
+		   Object[] objArray = message.toArray();
+		   String[] idk = new String[objArray.length];
+		   idk = Arrays.asList(objArray).toArray(new String[objArray.length]);
+		   if( sendSMS(idk, contacts, con) )
 		    	return true;
 		    else
 		    	return false;

@@ -83,6 +83,8 @@ public class audioGen implements Runnable {
 				int result = 0;
 			    audioData = new short[sizeInShorts];
 				
+			    AppLog.logString("Recording...");
+			    
 		    	while( isRec )	// Continuous recording
 		    	{
 		    		// read into short[], no offset, size

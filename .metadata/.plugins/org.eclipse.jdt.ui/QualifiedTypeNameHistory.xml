@@ -36,4 +36,5 @@
 <fullyQualifiedTypeName name="android.widget.CompoundButton.OnCheckedChangeListener"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="senior.project.R.id"/>
+<fullyQualifiedTypeName name="senior.project.AppLog"/>
 </qualifiedTypeNameHistroy>

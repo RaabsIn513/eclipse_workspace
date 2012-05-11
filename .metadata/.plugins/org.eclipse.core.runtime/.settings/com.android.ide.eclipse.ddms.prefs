@@ -1,10 +1,10 @@
-#Wed Apr 25 17:59:30 EDT 2012
+#Fri May 11 00:39:15 EDT 2012
 logcat.view.colsize.Text=543
 logcat.view.colsize.Level=29
 logcat.view.colsize.PID=50
 logcat.view.colsize.Tag=136
 logcat.view.colsize.Application=78
 com.android.ide.eclipse.ddms.timeOut=10000
-logcat.view.colsize.Time=130
+logcat.view.colsize.Time=139
 eclipse.preferences.version=1
 logcat.view.filters.list=name\: 'TRIGGER', tag\: 'TRIGGER', text\: '', pid\: '', app\: '', level\: 'verbose', name\: 'audioGen', tag\: 'audioGen', text\: '', pid\: '', app\: '', level\: 'verbose', name\: 'TRIGGERin', tag\: 'TRIGGERin', text\: '', pid\: '', app\: '', level\: 'verbose', 
