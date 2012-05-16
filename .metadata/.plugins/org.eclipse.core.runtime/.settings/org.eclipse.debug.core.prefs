@@ -1,3 +1,3 @@
-#Fri May 11 00:00:01 EDT 2012
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n<expression enabled\="true" text\="avg"/>\r\n<expression enabled\="true" text\="SumHigh"/>\r\n<expression enabled\="true" text\="(Max - avg )"/>\r\n</watchExpressions>\r\n
+#Wed May 16 10:20:23 EDT 2012
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n<expression enabled\="true" text\="avg"/>\r\n<expression enabled\="true" text\="SumHigh"/>\r\n<expression enabled\="true" text\="(Max - avg )"/>\r\n<expression enabled\="true" text\=""/>\r\n<expression enabled\="true" text\=""/>\r\n</watchExpressions>\r\n
 eclipse.preferences.version=1

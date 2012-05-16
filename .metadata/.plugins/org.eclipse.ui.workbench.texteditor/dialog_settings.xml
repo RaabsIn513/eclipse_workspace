@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="SAMPLE_RATE" key="selection"/>
+		<item value="String" key="selection"/>
 		<list key="findhistory">
+			<item value="String"/>
+			<item value="SettingsFile"/>
 			<item value="SAMPLE_RATE"/>
 			<item value="SAMP_HISTORY_SIZE"/>
 			<item value="THRESH_DIFF"/>
 			<item value="SAS_Contacts"/>
 			<item value="Thresh_Dif"/>
 			<item value="audioData"/>
-			<item value="audioGen"/>
-			<item value="Toast"/>
 		</list>
 		<list key="replacehistory">
 			<item value="SAMP_HISTORY_SIZE"/>

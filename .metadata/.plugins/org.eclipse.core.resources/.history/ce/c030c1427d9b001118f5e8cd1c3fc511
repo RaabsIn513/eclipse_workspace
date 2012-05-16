@@ -1,9 +1,6 @@
 package senior.project;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -12,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.telephony.SmsManager;
-import android.text.format.DateFormat;
 
 public class Send_SMS_Activity {
 	
@@ -47,48 +43,27 @@ public class Send_SMS_Activity {
 			message.add("SAMPLE_RATE: " + SAMPLE_RATE);
 			
 			message.add(retrieveDateTimeOps(con)[0]);
-			//message.add(retrieveDateTimeOps(con)[1]);
-		   //	for( int i = 0; i < info.length; i++ )
-		   //		message.add(info[i]);
+			message.add(retrieveDateTimeOps(con)[1]);
+		   	for( int i = 0; i < info.length; i++ )
+		   		message.add(info[i]);
 		   Object[] objArray = message.toArray();
 		   String[] idk = new String[objArray.length];
-		   //idk = Arrays.asList(objArray).toArray(new String[objArray.length]);
-		   idk = toString(message);
-		   String[] test = new String[2];
-		   test[0] = "hello";
-		   test[1] = "this is a test";
-		   AppLog.APP_TAG = "Send_SMS_Activity";
+		   idk = Arrays.asList(objArray).toArray(new String[objArray.length]);
 		   if( sendSMS(idk, contacts, con) )
-		   {
-			   AppLog.logString("Successful");
-			   return true;
-		   }
+		    	return true;
 		    else
-		    {
-		    	AppLog.logString("Fail!");
 		    	return false;
-		    }
+		    
 	    }
 	    catch( Exception ex )
 	    {
-	    	AppLog.APP_TAG = "Send_SMS_Activity";
-	    	AppLog.logString(ex.getMessage());
+	    	ex.getMessage();
+	    	
 	    	return false;
 	    }
 	}
 
-	private static String[] toString( LinkedList<String> input )
-	{
-		String[] result = new String[input.size()];
-		
-		for( int i = 0; i < input.size(); i++ )
-		{
-			result[i] = input.get(i).toString().intern();
-		}
-		return result;
-	}
-	
-    //@SuppressWarnings("deprecation")
+    @SuppressWarnings("deprecation")
 	public static boolean sendSMS( String phoneNumber, String message, Context con )
     {       
         PendingIntent pi = PendingIntent.getActivity(con, 0,
@@ -138,10 +113,6 @@ public class Send_SMS_Activity {
 	
 	private static String[] retrieveDateTimeOps(Context con)
 	{
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date date;
-		Calendar c = Calendar.getInstance();
-		
 	    SettingsFile = con.getSharedPreferences(SAS_Settings, 0);
 		Map<String,?> rawCont;
 		String[] keys = null;
@@ -156,16 +127,12 @@ public class Send_SMS_Activity {
 			
 			keys = Obj_to_Str(okeys);
 			//result = Obj_to_Str(ovals);	
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
-			String curentDateandTime = sdf.format(new Date(System.currentTimeMillis()));
 			
 			if( rawCont.containsKey("INCLUDE_DATE") && rawCont.containsKey("INCLUDE_TIME"))
 			{
-				String tfDate = rawCont.get("INCLUDE_DATE").toString();
-				if(  tfDate.toUpperCase().intern() == "TRUE" )
-					result[0] = curentDateandTime;
+				if( rawCont.get("INCLUDE_DATE") == true )
+					result[0] = 
 			}
-			return result;
 		}
 		catch(Exception ex)
 		{}

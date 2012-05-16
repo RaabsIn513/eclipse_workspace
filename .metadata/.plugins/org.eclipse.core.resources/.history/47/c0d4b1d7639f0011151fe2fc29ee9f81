@@ -48,17 +48,17 @@ public class Send_SMS_Activity {
 			
 			message.add(retrieveDateTimeOps(con)[0]);
 			//message.add(retrieveDateTimeOps(con)[1]);
-		   //	for( int i = 0; i < info.length; i++ )
-		   //		message.add(info[i]);
+		   	for( int i = 0; i < info.length; i++ )
+		   		message.add(info[i]);
 		   Object[] objArray = message.toArray();
 		   String[] idk = new String[objArray.length];
 		   //idk = Arrays.asList(objArray).toArray(new String[objArray.length]);
-		   idk = toString(message);
+		   idk = toString(objArray);
 		   String[] test = new String[2];
 		   test[0] = "hello";
 		   test[1] = "this is a test";
 		   AppLog.APP_TAG = "Send_SMS_Activity";
-		   if( sendSMS(idk, contacts, con) )
+		   if( sendSMS(test, contacts, con) )
 		   {
 			   AppLog.logString("Successful");
 			   return true;

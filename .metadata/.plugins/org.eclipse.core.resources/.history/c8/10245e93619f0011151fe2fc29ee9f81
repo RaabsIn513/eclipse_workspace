@@ -47,27 +47,17 @@ public class Send_SMS_Activity {
 			message.add("SAMPLE_RATE: " + SAMPLE_RATE);
 			
 			message.add(retrieveDateTimeOps(con)[0]);
-			//message.add(retrieveDateTimeOps(con)[1]);
-		   //	for( int i = 0; i < info.length; i++ )
-		   //		message.add(info[i]);
+			message.add(retrieveDateTimeOps(con)[1]);
+		   	for( int i = 0; i < info.length; i++ )
+		   		message.add(info[i]);
 		   Object[] objArray = message.toArray();
 		   String[] idk = new String[objArray.length];
-		   //idk = Arrays.asList(objArray).toArray(new String[objArray.length]);
-		   idk = toString(message);
-		   String[] test = new String[2];
-		   test[0] = "hello";
-		   test[1] = "this is a test";
-		   AppLog.APP_TAG = "Send_SMS_Activity";
+		   idk = Arrays.asList(objArray).toArray(new String[objArray.length]);
 		   if( sendSMS(idk, contacts, con) )
-		   {
-			   AppLog.logString("Successful");
-			   return true;
-		   }
+		    	return true;
 		    else
-		    {
-		    	AppLog.logString("Fail!");
 		    	return false;
-		    }
+		    
 	    }
 	    catch( Exception ex )
 	    {
@@ -77,18 +67,7 @@ public class Send_SMS_Activity {
 	    }
 	}
 
-	private static String[] toString( LinkedList<String> input )
-	{
-		String[] result = new String[input.size()];
-		
-		for( int i = 0; i < input.size(); i++ )
-		{
-			result[i] = input.get(i).toString().intern();
-		}
-		return result;
-	}
-	
-    //@SuppressWarnings("deprecation")
+    @SuppressWarnings("deprecation")
 	public static boolean sendSMS( String phoneNumber, String message, Context con )
     {       
         PendingIntent pi = PendingIntent.getActivity(con, 0,
