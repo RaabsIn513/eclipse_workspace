@@ -1,0 +1,38 @@
+package midterm1;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.Random;
+
+public  class Deck {
+	boolean CardDealt;
+	private String[] cards;
+   
+       public Deck()throws IOException
+       {
+	      FileInputStream fis = new FileInputStream("E:\\52.txt");
+          Scanner infile = new Scanner(fis);
+          cards = new String[52];
+          int j = 0;
+          while(infile.hasNext()){
+	         cards[j] = infile.nextLine();
+	         j++;
+          }
+ 
+       	}
+               
+   public String deal(){
+       
+       Random r = new Random();
+       int x = r.nextInt(52);
+       while(cards[x].equals("drawn")){
+                  x = r.nextInt(52);
+   }
+   String tmp = cards[x];
+   cards[x]  = "drawn";
+       return tmp;
+       
+   }
+
+
+}

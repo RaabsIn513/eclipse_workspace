@@ -74,7 +74,10 @@ public class Operational_Mode_Activity extends Activity{
 			double Max = max(data);
 			//double Min = min(data);
 			SumHigh = manageHighSum( Max );
-			avg = SumHigh / AMP_SAMP_HISTORY_SIZE;
+			if( ampHist.size() < AMP_SAMP_HISTORY_SIZE )
+				avg = SumHigh/ ampHist.size();
+			else
+				avg = SumHigh / AMP_SAMP_HISTORY_SIZE;
 			
 			//THRESH_DIFF  - the difference between the avg and the current max
 			//THRESH_SAMPS - the number of samples in which ( currentMax - avg > THRESH_DIF ) 

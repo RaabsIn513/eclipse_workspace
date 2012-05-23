@@ -23,7 +23,6 @@
 <fullyQualifiedTypeName name="com.sun.xml.internal.bind.v2.model.core.Ref"/>
 <fullyQualifiedTypeName name="java.sql.Ref"/>
 <fullyQualifiedTypeName name="com.androidplot.xy.SimpleXYSeries.ArrayFormat"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="senior.project.R.array"/>
 <fullyQualifiedTypeName name="android.content.SharedPreferences"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
@@ -40,4 +39,5 @@
 <fullyQualifiedTypeName name="android.text.format.DateFormat"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>

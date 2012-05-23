@@ -1,0 +1,40 @@
+package midterm1;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.io.IOException;
+
+import midterm1.Deck;
+import midterm1.MainDriver;
+ 
+public class BlackJack extends Deck{
+      
+	public BlackJack() throws IOException{
+		
+		super();
+	}
+	public int getCards()
+	{
+       int [] cards = new int[51];
+       int x;
+       x = (int) (Math.random()*51);
+       System.out.println(x);
+       return x;                    
+	}
+       
+	public String cardvalues(){
+		MainDriver d;
+		//d = new MainDriver(w1, w2, w3);
+		//d.train(s); //Call train method
+		//d.getCards();
+		
+		  
+		 //System.out.println("Resultant weights " + p.getWeights());    
+		 return null;
+	 }
+        
+    
+  }
+
+

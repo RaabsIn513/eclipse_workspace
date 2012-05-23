@@ -1,0 +1,166 @@
+package midterm1;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.io.IOException;
+
+import midterm1.Deck;
+import midterm1.MainDriver;
+ 
+public class BlackJack extends Deck{
+      
+	public BlackJack() throws IOException{
+		
+		//super();
+	}
+	
+	public String getCard( boolean doShow )
+	{
+		/*
+       int [] cards = new int[51];
+       int x;
+       x = (int) (Math.random()*51);
+       */
+		String deltCard = this.deal_card();
+		System.out.println(deltCard);
+		return deltCard;  
+	}
+    /**
+     * Get BlackJack value
+     * @return
+     */
+	public int[] get_BJ_Value(String cardLabel){
+		//MainDriver d;
+		//d = new MainDriver(w1, w2, w3);
+		//d.train(s); //Call train method
+		//d.getCards();		  
+		//System.out.println("Resultant weights " + p.getWeights());  
+		int[] result = new int[2];		// for the instance of drawing an ACE
+		result[0] = 0;
+		result[1] = 0;
+		
+		cardLabel = cardLabel.intern();
+		
+		if( cardLabel == "2 of hearts")
+			result[0] = 2;
+		if( cardLabel == "2 of diamonds")
+			result[0] = 2;
+		if( cardLabel == "2 of spades")
+			result[0] = 2;
+		if( cardLabel == "2 of clubs")
+			result[0] = 2;
+		if( cardLabel == "3 of hearts")
+			result[0] = 3;
+		if( cardLabel == "3 of diamonds")
+			result[0] = 3;
+		if( cardLabel == "3 of spades")
+			result[0] = 3;
+		if( cardLabel == "3 of clubs")
+			result[0] = 3;
+		if( cardLabel == "4 of hearts")
+			result[0] = 4;
+		if( cardLabel == "4 of diamonds")
+			result[0] = 4;
+		if( cardLabel == "4 of spades")
+			result[0] = 4;
+		if( cardLabel == "4 of clubs")
+			result[0] = 4;
+		if( cardLabel == "5 of hearts")
+			result[0] = 5;
+		if( cardLabel == "5 of diamonds")
+			result[0] = 5;
+		if( cardLabel == "5 of spades")
+			result[0] = 5;
+		if( cardLabel == "5 of clubs")
+			result[0] = 5;
+		if( cardLabel == "6 of hearts")
+			result[0] = 6;
+		if( cardLabel == "6 of diamonds")
+			result[0] = 6;
+		if( cardLabel == "6 of spades")
+			result[0] = 6;
+		if( cardLabel == "6 of clubs")
+			result[0] = 6;
+		if( cardLabel == "7 of hearts")
+			result[0] = 7;
+		if( cardLabel == "7 of diamonds")
+			result[0] = 7;
+		if( cardLabel == "7 of spades")
+			result[0] = 7;
+		if( cardLabel == "7 of clubs")
+			result[0] = 7;
+		if( cardLabel == "8 of hearts")
+			result[0] = 8;
+		if( cardLabel == "8 of diamonds")
+			result[0] = 8;
+		if( cardLabel == "8 of spades")
+			result[0] = 8;
+		if( cardLabel == "8 of clubs")
+			result[0] = 8;
+		if( cardLabel == "9 of hearts")
+			result[0] = 9;
+		if( cardLabel == "9 of diamonds")
+			result[0] = 9;
+		if( cardLabel == "9 of spades")
+			result[0] = 9;
+		if( cardLabel == "9 of clubs")
+			result[0] = 9;
+		if( cardLabel == "10 of hearts")
+			result[0] = 10;
+		if( cardLabel == "10 of diamonds")
+			result[0] = 10;
+		if( cardLabel == "10 of spades")
+			result[0] = 10;
+		if( cardLabel == "10 of clubs")
+			result[0] = 10;
+		if( cardLabel == "Jack of hearts")
+			result[0] = 10;
+		if( cardLabel == "Jack of diamonds")
+			result[0] = 10;
+		if( cardLabel == "Jack of spades")
+			result[0] = 10;
+		if( cardLabel == "Jack of clubs")
+			result[0] = 10;
+		if( cardLabel == "Queen of hearts")
+			result[0] = 10;
+		if( cardLabel == "Queen of diamonds")
+			result[0] = 10;
+		if( cardLabel == "Queen of spades")
+			result[0] = 10;
+		if( cardLabel == "Queen of clubs")
+			result[0] = 10;
+		if( cardLabel == "King of hearts")
+			result[0] = 10;
+		if( cardLabel == "King of diamonds")
+			result[0] = 10;
+		if( cardLabel == "King of spades")
+			result[0] = 10;
+		if( cardLabel == "King of clubs")
+			result[0] = 10;
+		if( cardLabel == "Ace of hearts")
+		{
+			result[0] = 1;
+			result[1] = 11;
+		}
+		if( cardLabel == "Ace of diamonds")
+		{
+			result[0] = 1;
+			result[1] = 11;
+		}if( cardLabel == "Ace of spades")
+		{
+			result[0] = 1;
+			result[1] = 11;
+		}if( cardLabel == "Ace of clubs")
+		{
+			result[0] = 1;
+			result[1] = 11;
+		}
+		
+		return result;
+	 }
+        
+    
+  }
+
+
